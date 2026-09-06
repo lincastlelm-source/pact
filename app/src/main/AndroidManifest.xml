@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      PERMISSIONS
+
+      There is deliberately no INTERNET permission. The app cannot open a socket even if a
+      dependency tried to, which is what makes the offline guarantee enforceable rather than a
+      promise. See docs/PRIVACY.md.
+
+      No location, contacts, camera, microphone, SMS or phone permissions are declared either.
+    -->
+
+    <!-- Android 13+: required to post any notification at all. Requested at runtime. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!--
+      Android 12+: needed for alarms that fire at the exact minute the user chose. Not granted
+      automatically for apps targeting 33+; the user grants it in system settings and the app
+      degrades to an inexact window without it. USE_EXACT_ALARM is deliberately NOT declared:
+      it is reserved for apps whose primary purpose is alarms and clocks.
+    -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <!-- Alarms do not survive a reboot, so the schedule is rebuilt from the database. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!--
+      WorkManager merges ACCESS_NETWORK_STATE into the manifest for its network constraints.
+      PACT never sets a network constraint, so the permission is removed here. Combined with the
+      absent INTERNET permission this means the app has no network capability at all.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove" />
+
+    <!-- Vibration for interventions, per behavior. -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!--
+      Requested so a STRONG intervention can show over the lock screen. On Android 14+ this is
+      restricted; if it is not granted the notification simply degrades to a heads-up.
+    -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+
+    <application
+        android:name=".PactApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:enableOnBackInvokedCallback="true"
+        android:theme="@style/Theme.PACT"
+        tools:targetApi="34">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|uiMode"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.PACT">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Opened from a notification or a full-screen intervention. -->
+            <intent-filter>
+                <action android:name="com.pact.coach.action.SHOW_INTERVENTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="pact" android:host="intervention" />
+            </intent-filter>
+        </activity>
+
+        <!--
+          Alarm delivery. Not exported: only the app's own PendingIntents may trigger it.
+        -->
+        <receiver
+            android:name=".services.alarm.AlarmReceiver"
+            android:exported="false"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="com.pact.coach.action.ALARM_FIRE" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+          Rebuilds every alarm after the events that clear or invalidate them.
+          Exported because the system delivers these broadcasts.
+        -->
+        <receiver
+            android:name=".services.alarm.SystemEventReceiver"
+            android:exported="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter android:priority="900">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+          Clock and time-zone changes. Kept separate because these broadcasts are not guarded by
+          RECEIVE_BOOT_COMPLETED and must not carry that permission filter.
+        -->
+        <receiver
+            android:name=".services.alarm.TimeChangeReceiver"
+            android:exported="true">
+            <intent-filter android:priority="900">
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- COMMIT / RECOVER / PASS tapped straight on the notification. -->
+        <receiver
+            android:name=".services.notification.NotificationActionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.pact.coach.action.COMMIT" />
+                <action android:name="com.pact.coach.action.RECOVER" />
+                <action android:name="com.pact.coach.action.PASS" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>

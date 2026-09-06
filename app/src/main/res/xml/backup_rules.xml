@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Cloud backup is disabled. The app's promise is that behavioural data stays on the device, and
+  Android's automatic backup would copy the database to the user's Google account.
+  Users move their data deliberately, via Settings > Export.
+-->
+<full-backup-content>
+    <exclude domain="database" path="." />
+    <exclude domain="sharedpref" path="." />
+    <exclude domain="file" path="." />
+</full-backup-content>

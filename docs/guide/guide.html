@@ -1,0 +1,2172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PACT — User Guide</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<section class="page cover">
+  <div>
+    <div class="mark">P</div>
+    <h1>PACT</h1>
+    <div class="tag">Personal Action &amp; Commitment Tracker</div>
+    <div class="tag" style="font-size:11pt;margin-top:4px;">User Guide &middot; Version 1.0.0</div>
+  </div>
+
+  <div class="quote">
+    Success is not never missing.<br>
+    Success is <strong>returning</strong> to the behavior.
+  </div>
+
+  <div>
+    <p style="font-size:10pt;color:var(--ink-soft);max-width:430px;">
+      A personal behavioural coach for Android that reminds you at the moment you planned, then
+      asks one question: are you doing this now, coming back to it later, or letting it go today?
+    </p>
+    <div class="meta">
+      Works entirely offline &middot; No account &middot; No internet permission &middot; Android 8.0 and newer
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTENTS ============================ -->
+<section class="page">
+  <h2>Contents</h2>
+  <div class="toc">
+    <div class="grp">Getting started</div>
+    <a>1 &nbsp; What PACT is, and what it is not</a>
+    <a>2 &nbsp; Installing the app</a>
+    <a>3 &nbsp; First run: the two permissions that matter</a>
+    <a>4 &nbsp; Testing your reminders</a>
+    <a>5 &nbsp; Onboarding</a>
+
+    <div class="grp">Setting things up</div>
+    <a>6 &nbsp; Creating a goal</a>
+    <a>7 &nbsp; Creating a behavior</a>
+    <a>8 &nbsp; Schedules and times of day</a>
+    <a>9 &nbsp; The minimum action</a>
+    <a>10 &nbsp; What a behavior means each day</a>
+    <a>11 &nbsp; Reminder sound, vibration and insistence</a>
+    <a>12 &nbsp; Recovery settings</a>
+
+    <div class="grp">Daily use</div>
+    <a>13 &nbsp; The intervention screen</a>
+    <a>14 &nbsp; COMMIT</a>
+    <a>15 &nbsp; RECOVER</a>
+    <a>16 &nbsp; PASS</a>
+    <a>17 &nbsp; Answering from the notification</a>
+    <a>18 &nbsp; The Home dashboard</a>
+    <a>19 &nbsp; The Today timeline</a>
+
+    <div class="grp">Looking back</div>
+    <a>20 &nbsp; Insights and the recovery score</a>
+    <a>21 &nbsp; The weekly review</a>
+    <a>22 &nbsp; The calendar</a>
+    <a>23 &nbsp; Skips, pauses and holidays</a>
+
+    <div class="grp">Housekeeping</div>
+    <a>24 &nbsp; Settings</a>
+    <a>25 &nbsp; Backup: export and import</a>
+    <a>26 &nbsp; When reminders do not arrive</a>
+    <a>27 &nbsp; Reference: states and symbols</a>
+  </div>
+
+  <div class="note" style="margin-top:26px;">
+    <span class="t">About the pictures in this guide</span>
+    The screens shown throughout are <strong>illustrations</strong>, drawn to match the app's real
+    layout, colours and wording rather than photographed from a phone. Small spacing details may
+    differ slightly from what you see on your own device; every label, button and message is taken
+    from the app itself.
+  </div>
+</section>
+
+<!-- ============================ 1. CONCEPT ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 1</div>
+  <h2>What PACT is, and what it is not</h2>
+
+  <p class="lead">
+    Most habit apps count streaks. PACT is built around a different claim: the thing that decides
+    whether a behaviour survives is not whether you ever miss it, but whether you come back to it
+    after you do.
+  </p>
+
+  <p>
+    So PACT does not ask "did you keep the chain going?". It asks, at the moment you planned to
+    act, what you are actually going to do about it — and it treats <em>coming back later</em> as a
+    real, tracked, respectable answer rather than a failure.
+  </p>
+
+  <h3>The loop</h3>
+
+  <svg viewBox="0 0 700 132" style="width:100%;height:auto;margin:8px 0 4px;">
+    <defs>
+      <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="#7C7973"/>
+      </marker>
+    </defs>
+    <g font-family="Segoe UI, Arial" font-size="10" text-anchor="middle">
+      <rect x="2"   y="30" width="92" height="38" rx="8" fill="#B8E5D8"/>
+      <text x="48"  y="54" fill="#00201A" font-weight="600">GOAL</text>
+
+      <rect x="112" y="30" width="102" height="38" rx="8" fill="#B8E5D8"/>
+      <text x="163" y="54" fill="#00201A" font-weight="600">BEHAVIOR</text>
+
+      <rect x="232" y="30" width="98" height="38" rx="8" fill="#B8E5D8"/>
+      <text x="281" y="54" fill="#00201A" font-weight="600">SCHEDULE</text>
+
+      <rect x="348" y="30" width="112" height="38" rx="8" fill="#2F6F62"/>
+      <text x="404" y="54" fill="#ffffff" font-weight="600">INTERVENTION</text>
+
+      <rect x="478" y="30" width="98" height="38" rx="8" fill="#2F6F62"/>
+      <text x="527" y="54" fill="#ffffff" font-weight="600">DECISION</text>
+
+      <rect x="594" y="30" width="104" height="38" rx="8" fill="#E8DFD3"/>
+      <text x="646" y="54" fill="#1A1C1B" font-weight="600">OUTCOME</text>
+
+      <line x1="96"  y1="49" x2="108" y2="49" stroke="#7C7973" marker-end="url(#ar)"/>
+      <line x1="216" y1="49" x2="228" y2="49" stroke="#7C7973" marker-end="url(#ar)"/>
+      <line x1="332" y1="49" x2="344" y2="49" stroke="#7C7973" marker-end="url(#ar)"/>
+      <line x1="462" y1="49" x2="474" y2="49" stroke="#7C7973" marker-end="url(#ar)"/>
+      <line x1="578" y1="49" x2="590" y2="49" stroke="#7C7973" marker-end="url(#ar)"/>
+
+      <path d="M646,72 L646,104 L404,104 L404,72" fill="none" stroke="#3F6C9E"
+            stroke-dasharray="4 3" marker-end="url(#ar)"/>
+      <text x="525" y="118" fill="#3F6C9E" font-size="9.5">recovery re-enters the loop at a later time</text>
+    </g>
+  </svg>
+
+  <h3>The vocabulary</h3>
+  <table>
+    <tr><th style="width:110px;">Term</th><th>What it means</th></tr>
+    <tr><td><strong>Goal</strong></td>
+        <td>The reason. <em>"Improve my physical fitness."</em> A goal never has a time; it is the why.</td></tr>
+    <tr><td><strong>Behavior</strong></td>
+        <td>The thing that actually moves the goal. <em>"Exercise."</em> One goal can have many.</td></tr>
+    <tr><td><strong>Schedule</strong></td>
+        <td>When the behavior happens. <em>"06:30 and 18:00, every day."</em></td></tr>
+    <tr><td><strong>Occurrence</strong></td>
+        <td>One specific slot. <em>"Exercise, Monday, 06:30."</em> Each is tracked separately, so
+            your morning session and your evening session have their own histories.</td></tr>
+    <tr><td><strong>Intervention</strong></td>
+        <td>The alarm and the screen that asks you to decide.</td></tr>
+    <tr><td><strong>Decision</strong></td>
+        <td>Commit, recover, or pass. Always yours.</td></tr>
+  </table>
+
+  <h3>What PACT deliberately does not do</h3>
+  <ul>
+    <li>No random rewards, points, gems, or variable-ratio mechanics.</li>
+    <li>No shaming language, guilt-trips, or "you broke your streak!" notifications.</li>
+    <li>No leaderboards, sharing, or social pressure.</li>
+    <li>No account, no cloud sync, and no internet permission at all.</li>
+    <li>No cloud AI. The coaching is local rules over your own numbers, and it never claims
+        insight the data does not support.</li>
+  </ul>
+
+  <div class="note">
+    <span class="t">Autonomy is the rule</span>
+    Even the most insistent reminder setting always offers a visible way out. PACT will never lock
+    you into a screen, and it never changes your schedule without you tapping to approve it.
+  </div>
+</section>
+
+<!-- ============================ 2. INSTALL ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 2</div>
+  <h2>Installing the app</h2>
+
+  <p class="lead">
+    PACT is distributed as a single APK file. There is no Play Store listing, so you install it
+    yourself — a process Android calls "sideloading".
+  </p>
+
+  <h3>What you need</h3>
+  <ul>
+    <li>An Android phone running <strong>8.0 (Oreo) or newer</strong>.</li>
+    <li>The file <span class="mono">PACT-1.0.0.apk</span> (about 1.9&nbsp;MB).</li>
+  </ul>
+  <p>
+    The APK is <em>universal</em>: it contains code for all four common processor types
+    (arm64-v8a, armeabi-v7a, x86, x86_64), so the same file works on essentially any phone.
+  </p>
+
+  <h3>Method A &mdash; without a cable (easiest)</h3>
+  <p><span class="step-num">1</span> Get the APK onto the phone: email it to yourself, put it in
+     Google Drive or OneDrive, or copy it over USB.</p>
+  <p><span class="step-num">2</span> Open your phone's <strong>Files</strong> app and tap the APK.</p>
+  <p><span class="step-num">3</span> Android will say the app is from an <strong>unknown
+     source</strong> and offer a settings toggle. Allow your file manager (or browser) to install
+     unknown apps, then go back and confirm.</p>
+  <p><span class="step-num">4</span> Tap <strong>Install</strong>, then <strong>Open</strong>.</p>
+
+  <div class="note">
+    <span class="t">That warning is normal</span>
+    Android shows the unknown-source warning for <em>any</em> app not delivered by a store. It is
+    not a sign that something is wrong with PACT. It is Android telling you, correctly, that
+    nobody has vetted this file except you.
+  </div>
+
+  <h3>Method B &mdash; over USB with adb</h3>
+  <p>On the phone, unlock Developer options: <strong>Settings &rarr; About phone</strong>, then tap
+     <strong>Build number</strong> seven times. Go to <strong>Developer options</strong> and turn on
+     <strong>USB debugging</strong>. Plug the phone in and accept the "Allow USB debugging?" prompt.</p>
+  <p>Then, on the computer:</p>
+  <p><code>adb devices</code> &nbsp;&mdash; your phone should be listed as <span class="mono">device</span></p>
+  <p><code>adb install -r PACT-1.0.0.apk</code></p>
+  <p>The <span class="mono">-r</span> flag reinstalls over an existing copy while keeping its data.</p>
+
+  <div class="warn">
+    <span class="t">Before you rely on it</span>
+    Your history lives only on the phone. PACT switches off Android's automatic cloud backup on
+    purpose, so nothing is copied to your Google account. Use
+    <strong>Settings &rarr; Export data</strong> from time to time, and keep the file somewhere safe.
+    See chapter 25.
+  </div>
+
+  <h3>Updating later</h3>
+  <p>
+    Install the newer APK the same way. Android keeps your data as long as the new file is signed
+    with the same key as the one already installed. If you ever see
+    <em>"App not installed"</em> on an update, that is a signature mismatch — export your data
+    first, uninstall, then install the new version.
+  </p>
+</section>
+
+<!-- ============================ 3. PERMISSIONS ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 3</div>
+  <h2>First run: the two permissions that matter</h2>
+
+  <p class="lead">
+    This is the most important page in the guide. Android grants neither of these automatically,
+    and without them your reminders will be late or will not arrive at all.
+  </p>
+
+  <div class="cols">
+    <div class="text">
+      <h3>1. Notifications</h3>
+      <p>
+        PACT asks for this once, on first launch. Tap <strong>Allow</strong>. Without it the app
+        cannot show you anything when a behavior comes due — the alarm still fires, but silently
+        and invisibly.
+      </p>
+      <p>If you dismissed the prompt by accident, you can re-enable it in Android's own settings:
+         <strong>Settings &rarr; Apps &rarr; PACT &rarr; Notifications</strong>.</p>
+
+      <h3>2. Alarms &amp; reminders</h3>
+      <p>
+        This is the one people miss. Since Android 12, apps must ask separately for permission to
+        fire an alarm at an <em>exact</em> minute. PACT does not ask for it automatically, because
+        that would be a pushy first-run experience — you grant it from inside the app.
+      </p>
+      <p>
+        Go to <strong>Settings</strong> in PACT, find
+        <strong>"Will my reminders actually arrive?"</strong>, and tap
+        <strong>Alarm permission</strong>. Android opens its own screen; turn on
+        <em>Allow setting alarms and reminders</em>.
+      </p>
+      <p>
+        Without it PACT still works, but it falls back to a ten-minute window: a 06:30 reminder may
+        arrive any time between 06:30 and 06:40. The Settings screen tells you which mode you are
+        currently in.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9679;&#9679;&#9679;&nbsp; &#9723;</span></div>
+        <div class="screen">
+          <div class="sh2">Settings</div>
+          <div class="sec">Will my reminders actually arrive?</div>
+          <div class="card plain">
+            <div style="display:flex;gap:6px;">
+              <span style="color:var(--sage);font-weight:700;">&#10003;</span>
+              <div>
+                <div style="font-weight:600;">Notifications</div>
+                <div class="sub">Allowed</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:6px;margin-top:7px;">
+              <span style="color:#A33A2C;font-weight:700;">!</span>
+              <div>
+                <div style="font-weight:600;">Exact alarms</div>
+                <div class="sub">Not allowed, reminders may be<br>several minutes late</div>
+              </div>
+            </div>
+            <div class="sub" style="margin-top:8px;line-height:1.35;">
+              Android limits when apps can wake the device. PACT never tries to work around these
+              restrictions; it degrades gracefully and tells you when precision is lost.
+            </div>
+            <div style="display:flex;gap:5px;margin-top:8px;">
+              <span class="btn" style="flex:1;margin:0;">Test my reminder</span>
+              <span class="btn out" style="flex:1;margin:0;">Alarm permission</span>
+            </div>
+            <span class="btn out" style="margin-top:5px;">Battery settings</span>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Settings shows exactly which mode you are in. A red <strong>!</strong>
+        means precision has been lost.</div>
+    </div>
+  </div>
+
+  <h3>3. Battery optimisation (phone-dependent)</h3>
+  <p>
+    Some manufacturers aggressively kill background apps to save battery. If your phone is a
+    <strong>Xiaomi, Samsung, Huawei, OnePlus, Oppo, Vivo</strong> or similar, also allow PACT to
+    run unrestricted: tap <strong>Battery settings</strong> on the same screen, find PACT, and
+    choose <em>Unrestricted</em> (the wording varies by brand).
+  </p>
+
+  <div class="warn">
+    <span class="t">This is the single most common cause of missed reminders</span>
+    It is not a bug in PACT and no app can reliably work around it. If reminders stop arriving
+    after a day or two of not opening the app, aggressive battery management is almost always why.
+  </div>
+</section>
+
+<!-- ============================ 4. ALARM TEST ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 4</div>
+  <h2>Testing your reminders</h2>
+
+  <p class="lead">
+    Do this before you trust the app with anything that matters. It takes fifteen seconds and it
+    is the only honest way to know reminders work on <em>your</em> phone.
+  </p>
+
+  <div class="cols">
+    <div class="text">
+      <p>
+        Go to <strong>Settings</strong> and tap <strong>Test my reminder</strong>. PACT schedules a
+        genuine alarm about fifteen seconds into the future, through exactly the same machinery a
+        real reminder uses — same alarm, same notification channel, same intervention screen.
+      </p>
+
+      <h3>What you should see</h3>
+      <ol>
+        <li>A confirmation: <em>"A test reminder will arrive in about 15 seconds."</em></li>
+        <li>About fifteen seconds later, a notification appears with
+            <strong>Commit</strong>, <strong>Later</strong> and <strong>Pass</strong> actions.</li>
+        <li>Your chosen sound plays and the phone vibrates, if you have those enabled.</li>
+        <li>Tapping the notification opens the full intervention screen.</li>
+      </ol>
+
+      <h3>If the message says "may be several minutes late"</h3>
+      <p>
+        The exact-alarm permission is not granted. Go back to chapter 3 and turn it on. The test
+        will still fire, just imprecisely.
+      </p>
+
+      <h3>If nothing arrives at all</h3>
+      <ul>
+        <li>Check notifications are allowed for PACT in Android's settings.</li>
+        <li>Check the phone is not in Do Not Disturb or a focus mode.</li>
+        <li>Check battery optimisation, as described in chapter 3.</li>
+      </ul>
+
+      <p>
+        Afterwards, tap <strong>Remove test reminders</strong>. This deletes the temporary test
+        behavior so it never appears in your statistics.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9679;&#9679;&#9679;&nbsp; &#9723;</span></div>
+        <div class="screen" style="background:#3a3733;padding:26px 11px;">
+          <div style="background:#fff;border-radius:9px;padding:9px;">
+            <div style="font-size:6.6pt;color:var(--on-surface-variant);">PACT &middot; now</div>
+            <div style="font-weight:700;margin-top:2px;">Test reminder</div>
+            <div class="sub" style="line-height:1.35;">
+              It is time for Test reminder. Whatever you can manage counts.<br>
+              If you can see this, reminders are working.
+            </div>
+            <div style="display:flex;gap:4px;margin-top:8px;border-top:1px solid #eee;padding-top:6px;">
+              <span style="flex:1;text-align:center;color:var(--commit);font-weight:700;font-size:7.4pt;">COMMIT</span>
+              <span style="flex:1;text-align:center;color:var(--recover);font-weight:700;font-size:7.4pt;">LATER</span>
+              <span style="flex:1;text-align:center;color:var(--pass);font-weight:700;font-size:7.4pt;">PASS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">The test notification. The three actions are the same ones every real
+        reminder carries.</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <span class="t">Re-test after a phone update</span>
+    Android updates and manufacturer software updates sometimes reset battery and alarm
+    permissions. If reminders quietly stop, run the test again first — it will usually tell you
+    what changed.
+  </div>
+</section>
+
+<!-- ============================ 5. ONBOARDING ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 5</div>
+  <h2>Onboarding</h2>
+
+  <p class="lead">
+    The first time you open PACT it walks you through four short screens. You can skip it and set
+    things up yourself, but the third and fourth screens contain the one piece of advice most worth
+    taking.
+  </p>
+
+  <div class="gallery">
+    <div>
+      <div class="phone" style="width:200px;">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen" style="min-height:250px;">
+          <div class="sh1" style="font-size:20pt;">PACT</div>
+          <div style="font-weight:600;margin-bottom:6px;">A personal coach for the things you have decided to do.</div>
+          <div class="sub" style="line-height:1.45;">
+            PACT reminds you at the moment you planned, then asks one question: are you doing this
+            now, coming back to it later, or letting it go today?
+          </div>
+          <div class="sub" style="margin-top:8px;">
+            Everything stays on this phone. There is no account and no internet connection.
+          </div>
+          <span class="btn">Get started</span>
+          <div style="text-align:center;color:var(--sage);font-size:7.4pt;margin-top:5px;">Skip setup</div>
+        </div>
+      </div>
+      <div class="caption" style="max-width:200px;">Step 1 &mdash; Welcome</div>
+    </div>
+
+    <div>
+      <div class="phone" style="width:200px;">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen" style="min-height:250px;">
+          <div class="sh2">How it works</div>
+          <div style="margin-top:7px;">
+            <div style="color:var(--sage);font-size:6.6pt;font-weight:700;letter-spacing:.8pt;">GOAL</div>
+            <div class="sub">The reason. "Improve my fitness."</div>
+          </div>
+          <div style="margin-top:6px;">
+            <div style="color:var(--sage);font-size:6.6pt;font-weight:700;letter-spacing:.8pt;">BEHAVIOR</div>
+            <div class="sub">What actually moves it. "Exercise."</div>
+          </div>
+          <div style="margin-top:6px;">
+            <div style="color:var(--sage);font-size:6.6pt;font-weight:700;letter-spacing:.8pt;">SCHEDULE</div>
+            <div class="sub">When. "06:30 and 18:00, every day."</div>
+          </div>
+          <div style="margin-top:6px;">
+            <div style="color:var(--sage);font-size:6.6pt;font-weight:700;letter-spacing:.8pt;">DECISION</div>
+            <div class="sub">Commit, recover, or pass.</div>
+          </div>
+          <div class="card plain" style="margin-top:8px;">
+            <div style="font-weight:600;">The important part</div>
+            <div class="sub" style="line-height:1.35;">Missing something is not failure. Recovering
+              is a real choice, tracked as its own outcome.</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption" style="max-width:200px;">Step 2 &mdash; The concept</div>
+    </div>
+
+    <div>
+      <div class="phone" style="width:200px;">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen" style="min-height:250px;">
+          <div class="sh2">One behavior</div>
+          <div class="sub">For: Improve my fitness</div>
+          <div class="sub" style="margin-top:7px;line-height:1.45;">
+            What is the one thing that would actually move this forward? Pick something small
+            enough that a bad day cannot stop it.
+          </div>
+          <div class="card plain" style="margin-top:8px;">
+            <div style="font-weight:600;">Do not try to change everything at once.</div>
+            <div class="sub" style="line-height:1.35;">One or two behaviors that survive a month
+              beat ten that last a week.</div>
+          </div>
+          <span class="btn">Create my first behavior</span>
+          <span class="btn out">I will do this later</span>
+        </div>
+      </div>
+      <div class="caption" style="max-width:200px;">Step 4 &mdash; The advice worth taking</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <span class="t">Start with one or two behaviors</span>
+    This is not modesty, it is arithmetic. Ten new behaviours means ten chances a day to feel like
+    you are failing, and people abandon the whole system rather than one item. One behaviour that
+    survives a month is worth more than ten that last a week — and you can always add more once the
+    first is genuinely automatic.
+  </div>
+</section>
+<!-- ============================ 6. GOALS ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 6</div>
+  <h2>Creating a goal</h2>
+
+  <p class="lead">
+    A goal is the <em>why</em>. It never has a time and you never tick it off. Its job is to give
+    the behaviours underneath it a reason to exist — and to appear on the intervention screen at
+    06:30 when you would rather go back to sleep.
+  </p>
+
+  <div class="cols">
+    <div class="text">
+      <p>Open the <strong>Goals</strong> tab and tap the <strong>Goal</strong> button.</p>
+
+      <h3>What to write</h3>
+      <table>
+        <tr><th style="width:96px;">Field</th><th>Guidance</th></tr>
+        <tr><td><strong>What is the goal?</strong></td>
+            <td>Plain language, present tense. <em>"Improve my physical fitness."</em> Not a task,
+                and not something you could finish this afternoon.</td></tr>
+        <tr><td><strong>Why does it matter?</strong></td>
+            <td>The field that earns its keep. <strong>This text is shown to you when a reminder
+                fires.</strong> Write the honest reason, not the presentable one.</td></tr>
+        <tr><td><strong>Notes</strong></td>
+            <td>Optional. Anything you want to remember about the goal itself.</td></tr>
+        <tr><td><strong>Category</strong></td>
+            <td>Pick a suggestion or type your own. Categories are free text; you are never
+                restricted to the built-in list.</td></tr>
+        <tr><td><strong>Priority</strong></td>
+            <td>Low, Medium, High or Critical. Used for ordering and for conflict warnings.</td></tr>
+      </table>
+
+      <div class="tip">
+        <span class="t">Write the "why" for a tired version of yourself</span>
+        "Because I want to be healthy" persuades nobody at 06:30. "Because I could not keep up with
+        my kids at the park" does. This is the sentence the app shows you at the exact moment it is
+        hardest to act.
+      </div>
+
+      <h3>Status</h3>
+      <p>
+        Once a goal exists you can set it to <strong>Active</strong>, <strong>Paused</strong>,
+        <strong>Completed</strong> or <strong>Archived</strong>. Paused and archived goals stay in
+        your history but drop out of the way.
+      </p>
+
+      <h3>Deleting a goal</h3>
+      <p>
+        Deleting a goal <strong>does not delete its behaviours or their history</strong>. They are
+        detached and carry on as unassigned behaviours. This is deliberate: tidying up a goal should
+        never cost you months of records.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div class="sh2">New goal</div>
+          <div style="border:1px solid var(--outline);border-radius:5px;padding:5px;margin-top:7px;">
+            <div class="sub" style="font-size:6.4pt;">What is the goal?</div>
+            <div>Improve my physical fitness</div>
+          </div>
+          <div style="border:1px solid var(--outline);border-radius:5px;padding:5px;margin-top:6px;">
+            <div class="sub" style="font-size:6.4pt;">Why does it matter?</div>
+            <div style="line-height:1.35;">I could not keep up with the kids at the park</div>
+          </div>
+          <div class="sub" style="font-size:6.4pt;margin-top:3px;">
+            This is shown when a reminder fires, so make it honest.
+          </div>
+
+          <div class="sec">Category</div>
+          <div>
+            <span class="chip">Health</span><span class="chip on">Fitness</span>
+            <span class="chip">Learning</span><span class="chip">Career</span>
+            <span class="chip">Personal</span>
+          </div>
+
+          <div class="sec">Priority</div>
+          <div>
+            <span class="chip">Low</span><span class="chip">Medium</span>
+            <span class="chip on">High</span><span class="chip">Critical</span>
+          </div>
+
+          <span class="btn">Create goal</span>
+        </div>
+      </div>
+      <div class="caption">Creating a goal. Four fields; only the first two really matter.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 7. BEHAVIORS ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 7</div>
+  <h2>Creating a behavior</h2>
+
+  <p class="lead">
+    A behavior is the thing you actually do. It is the longest form in the app, but the first
+    screenful is enough for most behaviours — everything below it has a sensible default.
+  </p>
+
+  <div class="cols">
+    <div class="text">
+      <h3>Start from a template</h3>
+      <p>
+        If you are creating your first behaviours, the template chips at the top prefill the whole
+        form: <em>Morning exercise</em>, <em>Evening reading</em>, <em>Drink water</em>,
+        <em>Plan tomorrow</em>, <em>Weekly review</em>. They are ordinary editable starting points,
+        and you can save your own with <strong>Save as template</strong>.
+      </p>
+
+      <h3>Name and goal</h3>
+      <p>
+        Name it as an action: <em>Exercise</em>, <em>Read</em>, <em>Prepare teaching materials</em>.
+        PACT warns if you already have a behavior with that name. Attach it to a goal, or choose
+        <strong>No goal</strong> — unattached behaviours work perfectly well.
+      </p>
+
+      <h3>What kind of behavior is this?</h3>
+      <p>Four presets, each setting two underlying switches you can still change afterwards:</p>
+      <table>
+        <tr><th style="width:82px;">Type</th><th>Means</th></tr>
+        <tr><td><strong>Time-based</strong></td>
+            <td>Fires an alarm at a set clock time. Measured by duration.
+                <em>Exercise at 06:30 for 30 minutes.</em></td></tr>
+        <tr><td><strong>Flexible</strong></td>
+            <td>No alarm. Just needs doing sometime today.
+                <em>Stretch at some point.</em></td></tr>
+        <tr><td><strong>Quantity</strong></td>
+            <td>Counts an amount rather than time.
+                <em>Drink 2 litres. Read 20 pages. Walk 7,000 steps.</em></td></tr>
+        <tr><td><strong>Checklist</strong></td>
+            <td>A list of items to tick off.
+                <em>Morning routine: water, exercise, shower, read.</em></td></tr>
+      </table>
+      <p>
+        The two switches underneath — <strong>Happens at a specific time</strong> and
+        <strong>How is it measured</strong> — are independent. A checklist can be anchored to 06:30;
+        a duration behavior can float across the day. The four types are just convenient presets.
+      </p>
+
+      <h3>Importance and difficulty</h3>
+      <p>
+        Importance feeds conflict warnings (two high-importance behaviours at the same time gets a
+        louder warning). Difficulty is for your own reference and future analysis. Neither changes
+        how reminders fire.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div class="sh2">New behavior</div>
+          <div class="sec">Start from a template</div>
+          <div>
+            <span class="chip q">Morning exercise</span><span class="chip q">Evening reading</span>
+            <span class="chip q">Drink water</span><span class="chip q">Plan tomorrow</span>
+          </div>
+
+          <div style="border:1px solid var(--outline);border-radius:5px;padding:5px;margin-top:8px;">
+            <div class="sub" style="font-size:6.4pt;">Name</div>
+            <div>Exercise</div>
+          </div>
+
+          <div class="sec">Goal</div>
+          <div>
+            <span class="chip">No goal</span>
+            <span class="chip on">Improve my physical fitness</span>
+          </div>
+
+          <div class="sec">What kind of behavior is this?</div>
+          <div>
+            <span class="chip on">Time-based</span><span class="chip">Flexible</span>
+            <span class="chip">Quantity-based</span><span class="chip">Checklist</span>
+          </div>
+
+          <div class="row" style="border:none;">
+            <div class="name">
+              <div>Happens at a specific time</div>
+              <div class="sub">Reminders fire at the times you set below.</div>
+            </div>
+            <div style="width:22px;height:12px;border-radius:8px;background:var(--sage);"></div>
+          </div>
+
+          <div class="sec">How is it measured?</div>
+          <div>
+            <span class="chip">Completion</span><span class="chip on">Duration</span>
+            <span class="chip">Quantity</span><span class="chip">Checklist</span>
+          </div>
+        </div>
+      </div>
+      <div class="caption">The top of the behavior editor. This much is enough for most behaviours.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 8. SCHEDULES ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 8</div>
+  <h2>Schedules and times of day</h2>
+
+  <p class="lead">
+    How often, and at what times. The two questions are separate: <em>how often</em> chooses the
+    days, <em>at what times</em> chooses the moments within those days.
+  </p>
+
+  <div class="cols">
+    <div class="text">
+      <h3>How often?</h3>
+      <table>
+        <tr><th style="width:100px;">Option</th><th>Behaviour</th></tr>
+        <tr><td>Once</td><td>A single day, then done.</td></tr>
+        <tr><td>Every day</td><td>Daily, no exceptions.</td></tr>
+        <tr><td>Weekdays</td><td>Monday to Friday.</td></tr>
+        <tr><td>Weekends</td><td>Saturday and Sunday.</td></tr>
+        <tr><td>Chosen days</td><td>Pick any combination. <em>Mon / Wed / Fri for the gym.</em></td></tr>
+        <tr><td>Every N days</td><td>Every 2 days, every 10 days. Counted from the start date, so the
+            rhythm stays stable.</td></tr>
+        <tr><td>N times a week</td><td>Three sessions a week, no fixed days. PACT spreads the slots
+            evenly across the week rather than bunching them on Monday.</td></tr>
+      </table>
+
+      <h3>Several times a day</h3>
+      <p>
+        Add as many times as you need. This is worth understanding properly:
+      </p>
+      <div class="note">
+        <span class="t">Each time is its own occurrence</span>
+        Exercise at 06:30 and 18:00 is <strong>two separate occurrences</strong> every day, each with
+        its own alarm, its own decision and its own history. Completing the morning one has no effect
+        on the evening one, and the statistics can tell you that you finish mornings 90% of the time
+        and evenings 40% — which is exactly the kind of thing worth knowing.
+      </div>
+      <p>
+        Tap a time chip to change it, tap the <strong>&times;</strong> to remove it, tap
+        <strong>+ Add time</strong> for another. A behavior can have up to twelve times a day.
+      </p>
+
+      <h3>For flexible behaviours</h3>
+      <p>
+        If <em>Happens at a specific time</em> is off, you get a single field instead:
+        <strong>How many times a day?</strong> Those occurrences have no alarm and no clock time —
+        they simply appear under <em>Anytime today</em> and you tick them off when you do them.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div class="sec">How often?</div>
+          <div>
+            <span class="chip">Once</span><span class="chip on">Every day</span>
+            <span class="chip">Weekdays</span><span class="chip">Weekends</span>
+            <span class="chip">Chosen days</span><span class="chip">Every N days</span>
+            <span class="chip">N times a week</span>
+          </div>
+
+          <div class="sec">At what times?</div>
+          <div class="sub" style="line-height:1.35;">
+            Each time is tracked separately, so a morning and an evening session keep their own
+            history.
+          </div>
+          <div style="margin-top:6px;">
+            <span class="chip on">06:30 &nbsp;&times;</span>
+            <span class="chip on">18:00 &nbsp;&times;</span>
+            <span class="chip q">+ Add time</span>
+          </div>
+
+          <div class="sec">Chosen days example</div>
+          <div>
+            <span class="chip on">Mo</span><span class="chip">Tu</span><span class="chip on">We</span>
+            <span class="chip">Th</span><span class="chip on">Fr</span><span class="chip">Sa</span>
+            <span class="chip">Su</span>
+          </div>
+
+          <div class="card plain" style="margin-top:10px;">
+            <div class="sub" style="line-height:1.4;">
+              <strong>Result:</strong> two reminders every day &mdash; 06:30 and 18:00 &mdash; each
+              tracked on its own.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Times of day. Two chips here means two independent occurrences daily.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 9. MINIMUM ACTION ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 9</div>
+  <h2>The minimum action</h2>
+
+  <p class="lead">
+    Possibly the most useful single feature in PACT, and the one most people skip past. Set it.
+  </p>
+
+  <div class="cols">
+    <div class="text">
+      <p>
+        Every duration or quantity behavior can define two numbers:
+      </p>
+      <table>
+        <tr><th style="width:110px;">Target</th><td>What you are aiming for on a normal day.
+            <em>30 minutes.</em></td></tr>
+        <tr><th>Minimum</th><td>The floor you can always manage, even on the worst day.
+            <em>5 minutes.</em></td></tr>
+      </table>
+
+      <h3>What it does</h3>
+      <p>
+        When a reminder fires, the intervention screen shows the minimum <strong>explicitly</strong>,
+        as an offer, before you have decided anything:
+      </p>
+      <div class="card plain" style="font-size:9.4pt;padding:11px;margin:10px 0;">
+        <em>"You do not have to do the full session. Your minimum is 5 min."</em><br>
+        <span style="display:inline-block;margin-top:7px;background:var(--primary-container);
+              color:var(--on-primary-container);border-radius:6px;padding:3px 9px;font-size:9pt;
+              font-weight:600;">Just do the minimum</span>
+      </div>
+      <p>
+        One tap and the occurrence is complete. Not as a consolation prize — it is recorded as a
+        genuine completion, with a note that it was the minimum rather than the full target.
+      </p>
+
+      <h3>Why this matters</h3>
+      <p>
+        A bad day usually produces a <em>miss</em>, and a miss produces the feeling that the whole
+        thing has slipped, which produces another miss. The minimum action interrupts that: five
+        minutes is almost never impossible, and it keeps the behaviour alive on exactly the days
+        that would otherwise break it.
+      </p>
+
+      <h3>What PACT does with it later</h3>
+      <p>
+        Minimum completions are counted separately from full ones. If most of your completions are
+        the minimum, the coach eventually says so:
+      </p>
+      <div class="note">
+        <em>"73% of your Exercise completions are the minimum rather than the full target. Lowering
+        the target, or ramping it up gradually, may fit better."</em>
+      </div>
+      <p>
+        That is a useful signal. It usually means the target was set by an optimistic version of you
+        who was not tired.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div class="sec">Duration</div>
+          <div style="display:flex;gap:5px;">
+            <div style="flex:1;border:1px solid var(--outline);border-radius:5px;padding:5px;">
+              <div class="sub" style="font-size:6.2pt;">Target (min)</div>
+              <div style="font-size:11pt;">30</div>
+            </div>
+            <div style="flex:1;border:1px solid var(--sage);border-radius:5px;padding:5px;">
+              <div class="sub" style="font-size:6.2pt;">Minimum (min)</div>
+              <div style="font-size:11pt;color:var(--sage);">5</div>
+            </div>
+          </div>
+          <div class="sub" style="margin-top:5px;line-height:1.35;">
+            The minimum is what you offer yourself on a bad day. It still counts as done.
+          </div>
+
+          <div class="sec" style="margin-top:14px;">On the intervention screen</div>
+          <div class="card plain">
+            <div class="sub" style="line-height:1.4;">
+              You do not have to do the full session. Your minimum is 5&nbsp;min.
+            </div>
+            <div style="background:var(--primary-container);color:var(--on-primary-container);
+                 border-radius:6px;padding:4px;text-align:center;font-weight:600;margin-top:7px;">
+              Just do the minimum
+            </div>
+          </div>
+
+          <div class="sec" style="margin-top:14px;">In your history</div>
+          <div class="row"><div class="name">Mon 6 &middot; 06:30</div><span class="pill p-done">&#10003; Completed</span></div>
+          <div class="row"><div class="name">Tue 7 &middot; 06:30<div class="sub">minimum</div></div><span class="pill p-done">&#10003; Completed</span></div>
+        </div>
+      </div>
+      <div class="caption">Target and minimum. A minimum day is still a completed day.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 10. DAILY CUSTOMISATION ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 10</div>
+  <h2>What a behavior means each day</h2>
+
+  <p class="lead">
+    "Exercise" stays one behavior with one continuous history, while Monday is a 20-minute run and
+    Sunday is a rest day.
+  </p>
+
+  <div class="cols">
+    <div class="text">
+      <p>
+        In the behavior editor, find <strong>What does it mean each day?</strong>. There are two
+        levels:
+      </p>
+      <ul>
+        <li><strong>Default plan</strong> &mdash; used on any day without its own plan.</li>
+        <li><strong>Per-weekday plans</strong> &mdash; tap a day chip (Mo, Tu, We&hellip;) to give
+            that day its own title, details, duration, or mark it a rest day.</li>
+      </ul>
+
+      <h3>A worked example</h3>
+      <table>
+        <tr><th style="width:62px;">Day</th><th>Plan</th></tr>
+        <tr><td>Monday</td><td>20-minute run</td></tr>
+        <tr><td>Tuesday</td><td>Upper-body workout</td></tr>
+        <tr><td>Wednesday</td><td>30-minute walk</td></tr>
+        <tr><td>Thursday</td><td>Strength training</td></tr>
+        <tr><td>Friday</td><td>Football</td></tr>
+        <tr><td>Saturday</td><td>Stretching</td></tr>
+        <tr><td>Sunday</td><td><em>Rest day</em></td></tr>
+      </table>
+      <p>
+        This is still <strong>one</strong> behavior called Exercise. One completion rate, one
+        streak, one history — but the reminder at 06:30 on Thursday says "Strength training", not
+        "Exercise".
+      </p>
+
+      <h3>How PACT picks a plan</h3>
+      <p>Most specific wins:</p>
+      <p class="mono" style="font-size:8.6pt;">
+        exact date + slot &nbsp;&rarr;&nbsp; exact date &nbsp;&rarr;&nbsp; weekday + slot
+        &nbsp;&rarr;&nbsp; weekday &nbsp;&rarr;&nbsp; default
+      </p>
+      <p>
+        A day plan only overrides the fields it actually sets. If Tuesday says "Upper body" but
+        leaves the duration blank, it still inherits the behavior's 30 minutes.
+      </p>
+
+      <div class="tip">
+        <span class="t">Rest days are planned, not skipped</span>
+        Marking Sunday as a rest day is different from skipping it. A rest day is part of the plan
+        and is shown as such; a skip is an exception to the plan. See chapter 23.
+      </div>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div class="sec">What does it mean each day?</div>
+          <div style="border:1px solid var(--outline);border-radius:5px;padding:5px;">
+            <div class="sub" style="font-size:6.2pt;">Default plan</div>
+            <div>Move for as long as you can manage</div>
+          </div>
+          <div class="sub" style="margin-top:5px;line-height:1.35;">
+            Give a specific day its own plan, for example a Monday run and a Thursday strength
+            session.
+          </div>
+          <div style="margin-top:6px;">
+            <span class="chip on">Mo</span><span class="chip on">Tu</span><span class="chip on">We</span>
+            <span class="chip on">Th</span><span class="chip on">Fr</span><span class="chip on">Sa</span>
+            <span class="chip on">Su</span>
+          </div>
+
+          <div class="sec" style="margin-top:12px;">Thursday</div>
+          <div style="border:1px solid var(--outline);border-radius:5px;padding:5px;">
+            <div class="sub" style="font-size:6.2pt;">Title</div>
+            <div>Strength training</div>
+          </div>
+          <div style="border:1px solid var(--outline);border-radius:5px;padding:5px;margin-top:5px;">
+            <div class="sub" style="font-size:6.2pt;">Duration for this day (min)</div>
+            <div>45</div>
+          </div>
+          <div class="row" style="border:none;margin-top:4px;">
+            <div class="name">
+              <div>Rest day</div>
+              <div class="sub">Shown as a planned rest.</div>
+            </div>
+            <div style="width:22px;height:12px;border-radius:8px;background:#cfc9bf;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Per-day plans. The behavior stays one thing; the instruction changes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 11. REMINDER SETTINGS ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 11</div>
+  <h2>Reminder sound, vibration and insistence</h2>
+
+  <div class="cols">
+    <div class="text">
+      <h3>Sound</h3>
+      <p>
+        Each behavior can have its own sound, so you can learn to recognise which reminder is
+        firing without looking. <strong>Choose a sound</strong> opens the system picker (notification
+        and alarm tones); <strong>Use a file</strong> lets you pick any audio file on the phone.
+      </p>
+      <div class="note">
+        <span class="t">Why a changed sound needs a moment</span>
+        Android bakes a notification's sound into a "channel" when it is created and will not let an
+        app edit it afterwards. PACT works around this by creating a fresh channel whenever you
+        change a sound. You may notice a new entry appear under the app's notification categories in
+        Android settings; the old one is removed automatically.
+      </div>
+
+      <h3>Vibration</h3>
+      <p>Five patterns: Default, Short, Long, Double and Insistent.</p>
+
+      <h3>How insistent?</h3>
+      <table>
+        <tr><th style="width:66px;">Level</th><th>What happens</th></tr>
+        <tr><td><strong>Gentle</strong></td>
+            <td>A quiet notification you can ignore. No follow-up.</td></tr>
+        <tr><td><strong>Coach</strong></td>
+            <td>A heads-up notification, plus one follow-up reminder if you do not answer.
+                The sensible default.</td></tr>
+        <tr><td><strong>Strong</strong></td>
+            <td>A full-screen prompt asking for a decision, shown over the lock screen where the
+                phone allows it. Uses the strongest alarm the platform offers.</td></tr>
+      </table>
+      <p>
+        <strong>Strong never traps you.</strong> The screen always shows a
+        <em>"Decide later"</em> option and the back gesture works. PACT will not hold your phone
+        hostage.
+      </p>
+
+      <h3>Warn me before / Follow up after</h3>
+      <p>
+        <em>Warn me before</em> sends a quiet heads-up a few minutes early, so you can finish what
+        you are doing. <em>Follow up after</em> sets how long PACT waits before its single
+        escalation reminder. One escalation only — an app that will not stop is an app you uninstall.
+      </p>
+
+      <h3>Counts as missed after</h3>
+      <p>
+        If you never answer, the occurrence becomes <strong>Missed</strong> after this many minutes
+        (default 120). A behavior you committed to but never completed gets longer — until the end
+        of the day.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div class="sec">Reminder</div>
+          <div class="row"><div class="name">Remind me</div>
+            <div style="width:22px;height:12px;border-radius:8px;background:var(--sage);"></div></div>
+          <div class="row"><div class="name">Sound</div>
+            <div style="width:22px;height:12px;border-radius:8px;background:var(--sage);"></div></div>
+          <div class="sub" style="margin-top:4px;">Sound: Argon</div>
+          <div style="display:flex;gap:5px;margin-top:5px;">
+            <span class="btn out" style="flex:1;margin:0;">Choose a sound</span>
+            <span class="btn out" style="flex:1;margin:0;">Use a file</span>
+          </div>
+          <div class="row" style="margin-top:5px;"><div class="name">Vibration</div>
+            <div style="width:22px;height:12px;border-radius:8px;background:var(--sage);"></div></div>
+          <div style="margin-top:4px;">
+            <span class="chip on">Default</span><span class="chip">Short</span>
+            <span class="chip">Long</span><span class="chip">Double</span>
+          </div>
+
+          <div class="sec">How insistent?</div>
+          <div>
+            <span class="chip">Gentle</span><span class="chip on">Coach</span>
+            <span class="chip">Strong</span>
+          </div>
+          <div class="sub" style="margin-top:4px;line-height:1.35;">
+            A heads-up reminder, with one follow-up if you do not answer.
+          </div>
+
+          <div style="display:flex;gap:5px;margin-top:8px;">
+            <div style="flex:1;border:1px solid var(--outline);border-radius:5px;padding:4px;">
+              <div class="sub" style="font-size:6pt;">Warn me before (min)</div><div>5</div>
+            </div>
+            <div style="flex:1;border:1px solid var(--outline);border-radius:5px;padding:4px;">
+              <div class="sub" style="font-size:6pt;">Follow up after (min)</div><div>10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Per-behavior reminder settings.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 12. RECOVERY SETTINGS ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 12</div>
+  <h2>Recovery settings</h2>
+
+  <p class="lead">
+    Recovery is the heart of the app. These settings control how freely you can push a behavior to
+    a later time.
+  </p>
+
+  <div class="cols">
+    <div class="text">
+      <table>
+        <tr><th style="width:126px;">Setting</th><th>Meaning</th></tr>
+        <tr><td><strong>Allow moving it later</strong></td>
+            <td>Turns recovery on or off for this behavior. Leave it on unless the behavior
+                genuinely only makes sense at one moment.</td></tr>
+        <tr><td><strong>Default delay</strong></td>
+            <td>How far ahead the <em>Later</em> action on the notification pushes it. 30 minutes by
+                default.</td></tr>
+        <tr><td><strong>Max moves</strong></td>
+            <td>How many times one occurrence can be pushed before PACT stops offering it.
+                Default 3.</td></tr>
+      </table>
+
+      <h3>Why there is a limit at all</h3>
+      <p>
+        Without one, "later" becomes a way to avoid deciding. When you hit the limit PACT says:
+      </p>
+      <div class="note">
+        <em>"You have already moved this 3 times. It may be worth changing the schedule instead."</em>
+      </div>
+      <p>
+        Which is usually true. Repeatedly pushing the same session is a signal that the scheduled
+        time is wrong, not that you lack willpower — and the coach will eventually suggest a better
+        time based on your own history.
+      </p>
+
+      <h3>Gradual progression</h3>
+      <p>
+        Optional, and entirely manual. Turn on <strong>Ramp up gradually</strong> and set a target
+        per week:
+      </p>
+      <table>
+        <tr><th>Week 1</th><td>10 minutes</td></tr>
+        <tr><th>Week 2</th><td>15 minutes</td></tr>
+        <tr><th>Week 3</th><td>20 minutes</td></tr>
+        <tr><th>Week 4</th><td>30 minutes</td></tr>
+      </table>
+      <p>
+        PACT never raises a target on its own. If you leave a week blank it holds at the previous
+        value; after the last step it stays there indefinitely.
+      </p>
+
+      <h3>Reflection</h3>
+      <p>
+        <strong>Never</strong>, <strong>Sometimes</strong> or <strong>Always</strong>. "Sometimes"
+        means the app asks how it went on the days most likely to be worth a note — a minimum or
+        partial completion — rather than at random.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div class="sec">Recovery</div>
+          <div class="row"><div class="name">
+            <div>Allow moving it later</div>
+            <div class="sub">Recovering is not a miss. It keeps the original time in your history.</div>
+          </div>
+          <div style="width:22px;height:12px;border-radius:8px;background:var(--sage);"></div></div>
+
+          <div style="display:flex;gap:5px;margin-top:7px;">
+            <div style="flex:1;border:1px solid var(--outline);border-radius:5px;padding:4px;">
+              <div class="sub" style="font-size:6pt;">Default delay (min)</div><div>30</div>
+            </div>
+            <div style="flex:1;border:1px solid var(--outline);border-radius:5px;padding:4px;">
+              <div class="sub" style="font-size:6pt;">Max moves</div><div>3</div>
+            </div>
+          </div>
+
+          <div class="sec">Reflection</div>
+          <div>
+            <span class="chip">Never</span><span class="chip on">Sometimes</span>
+            <span class="chip">Always</span>
+          </div>
+
+          <div class="row" style="margin-top:8px;"><div class="name">
+            <div>Ramp up gradually</div>
+            <div class="sub">You set each week yourself. The app never raises a target on its own.</div>
+          </div>
+          <div style="width:22px;height:12px;border-radius:8px;background:var(--sage);"></div></div>
+
+          <div style="border:1px solid var(--outline);border-radius:5px;padding:4px;margin-top:5px;">
+            <div class="sub" style="font-size:6pt;">Week 1 target (min)</div><div>10</div>
+          </div>
+          <div style="border:1px solid var(--outline);border-radius:5px;padding:4px;margin-top:4px;">
+            <div class="sub" style="font-size:6pt;">Week 2 target (min)</div><div>15</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Recovery limits and the optional manual ramp.</div>
+    </div>
+  </div>
+</section>
+<!-- ============================ 13. INTERVENTION ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 13</div>
+  <h2>The intervention screen</h2>
+
+  <p class="lead">
+    This is the moment the whole app exists for. Everything else is preparation for these fifteen
+    seconds.
+  </p>
+
+  <div class="cols">
+    <div class="text">
+      <p>
+        When a behavior comes due, PACT fires an alarm and shows you the intervention. The header
+        band carries the behavior's category colour, so a 06:30 fitness reminder looks different
+        from a 20:00 reading one before you have read a word.
+      </p>
+
+      <h3>What it tells you, in order</h3>
+      <ol>
+        <li><strong>The time and the name</strong> — what this is and when it was planned.</li>
+        <li><strong>The goal</strong> — which larger thing this serves.</li>
+        <li><strong>Why it matters</strong> — the sentence you wrote yourself, when you were not
+            tired.</li>
+        <li><strong>Today's plan</strong> — the day-specific instruction, if you set one.</li>
+        <li><strong>Planned</strong> and <strong>Minimum</strong> — the full target and the floor.</li>
+      </ol>
+
+      <h3>Then three ways forward</h3>
+      <p>
+        They are deliberately large, individually labelled, and different in both colour
+        <em>and</em> wording — so they are distinguishable at a glance, half awake, and by someone
+        who cannot rely on colour.
+      </p>
+      <table>
+        <tr><td style="width:74px;"><strong style="color:#2F6F62;">COMMIT</strong></td>
+            <td>I am doing this now.</td></tr>
+        <tr><td><strong style="color:#3F6C9E;">RECOVER</strong></td>
+            <td>Not now, but I will come back to it.</td></tr>
+        <tr><td><strong style="color:#6F6A62;">PASS</strong></td>
+            <td>I am choosing to skip this one.</td></tr>
+      </table>
+
+      <div class="note">
+        <span class="t">You can always leave</span>
+        At the bottom there is a <strong>Close</strong> link — or <strong>Decide later</strong> on a
+        Strong behavior. Leaving without deciding records nothing. The app will not hold your phone
+        hostage, no matter how the reminder is configured.
+      </div>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>06:30</span><span>&#9723;</span></div>
+        <div style="background:linear-gradient(135deg,#3E7CA6 0%,#326687 100%);color:#fff;padding:16px 12px 14px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="badge onhero">&#9855;</span>
+            <span style="font-size:9.5pt;opacity:.9;">06:30</span>
+          </div>
+          <div style="font-size:15pt;font-weight:300;letter-spacing:.5pt;margin-top:9px;">20-MINUTE RUN</div>
+        </div>
+        <div class="screen">
+          <div class="sec" style="margin-top:2px;">Goal</div>
+          <div>Improve my physical fitness</div>
+          <div class="sec">Why it matters</div>
+          <div>I could not keep up with the kids at the park</div>
+          <div class="sec">Today's plan</div>
+          <div>Easy pace, out and back along the canal</div>
+          <div class="sec">Planned</div>
+          <div>20 min</div>
+          <div class="sec">Minimum</div>
+          <div>5 min</div>
+
+          <div style="margin-top:11px;">
+            <div class="decision d-commit"><div class="lbl">COMMIT</div>
+              <div class="sup">I am doing this now</div></div>
+            <div class="decision d-recover"><div class="lbl">RECOVER</div>
+              <div class="sup">Not now, but I will come back to it</div></div>
+            <div class="decision d-pass"><div class="lbl">PASS</div>
+              <div class="sup">I am choosing to skip this one</div></div>
+          </div>
+
+          <div class="card plain" style="margin-top:8px;">
+            <div class="sub" style="line-height:1.4;">You do not have to do the full session.
+              Your minimum is 5&nbsp;min.</div>
+            <div style="background:var(--primary-container);color:var(--on-primary-container);
+                 border-radius:6px;padding:4px;text-align:center;font-weight:600;margin-top:6px;">
+              Just do the minimum</div>
+          </div>
+          <div style="text-align:center;color:var(--sage);font-size:7.4pt;margin-top:8px;">Close</div>
+        </div>
+      </div>
+      <div class="caption">The intervention. Three decisions, plus the minimum offered before you
+        have to choose.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 14-16. THE THREE DECISIONS ============================ -->
+<section class="page">
+  <div class="kicker">Chapters 14 &ndash; 16</div>
+  <h2>The three decisions</h2>
+
+  <h3 style="color:#2F6F62;">COMMIT &mdash; I am doing this now</h3>
+  <p>
+    The screen changes to <strong>in progress</strong> and waits. When you finish, tap
+    <strong>COMPLETE</strong>. For a quantity behavior you can type how much you actually did; for a
+    checklist you tick items as you go.
+  </p>
+  <p>
+    You can still change your mind: <em>"I did the minimum"</em> and <em>"Actually, move it
+    later"</em> are both available from the in-progress screen.
+  </p>
+  <p>
+    If you commit and then never complete, PACT waits until the end of the day before recording it
+    as missed &mdash; longer than the normal grace window, because you did start.
+  </p>
+
+  <h3 style="color:#3F6C9E;">RECOVER &mdash; not now, but I will come back to it</h3>
+  <p>
+    Choose 15, 30, 45 minutes, 1 or 2 hours, or type a custom number. A new reminder is set, and it
+    is measured <strong>from now</strong>: if a 06:30 alarm is answered at 08:00 and you ask for 30
+    minutes, the new one is 08:30, not 07:00.
+  </p>
+  <p>
+    Recovery may cross midnight; that is expected and supported.
+  </p>
+
+  <div class="note nobreak">
+    <span class="t">What recovery does to your history</span>
+    The original occurrence is <strong>not rewritten</strong>. It is closed as <em>Moved later</em>,
+    keeping its planned 18:00 time, and a new linked occurrence is created. Your history shows both:
+    the plan and what actually happened.
+  </div>
+
+  <svg viewBox="0 0 660 118" style="width:100%;height:auto;margin:6px 0 2px;">
+    <defs>
+      <marker id="ar2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="#3F6C9E"/>
+      </marker>
+    </defs>
+    <g font-family="Segoe UI, Arial" font-size="10" text-anchor="middle">
+      <rect x="14" y="26" width="150" height="46" rx="9" fill="#EAF0F7" stroke="#3F6C9E"/>
+      <text x="89" y="46" fill="#1A1C1B" font-weight="600">18:00 Exercise</text>
+      <text x="89" y="62" fill="#3F6C9E">&#8635; Moved later</text>
+
+      <rect x="230" y="26" width="150" height="46" rx="9" fill="#EAF0F7" stroke="#3F6C9E"/>
+      <text x="305" y="46" fill="#1A1C1B" font-weight="600">18:30 Exercise</text>
+      <text x="305" y="62" fill="#3F6C9E">&#8635; Moved later</text>
+
+      <rect x="446" y="26" width="150" height="46" rx="9" fill="#E4F1EC" stroke="#2F6F62"/>
+      <text x="521" y="46" fill="#1A1C1B" font-weight="600">19:15 Exercise</text>
+      <text x="521" y="62" fill="#2F6F62">&#10003; Completed</text>
+
+      <line x1="166" y1="49" x2="226" y2="49" stroke="#3F6C9E" marker-end="url(#ar2)"/>
+      <line x1="382" y1="49" x2="442" y2="49" stroke="#3F6C9E" marker-end="url(#ar2)"/>
+
+      <text x="305" y="100" fill="#5C574F" font-size="10.5">
+        The whole chain scores as <tspan font-weight="700" fill="#2F6F62">one completion</tspan>,
+        not two misses and a win.
+      </text>
+    </g>
+  </svg>
+
+  <p>
+    This is why PACT does not punish you for recovering. If it scored each row separately, moving a
+    session twice would look like two failures &mdash; and the app would be discouraging the exact
+    behaviour it is trying to build.
+  </p>
+  <p>
+    There is a limit (three moves by default). When you hit it, PACT suggests changing the schedule
+    instead, which is usually the honest answer.
+  </p>
+
+  <h3 style="color:#6F6A62;">PASS &mdash; I am choosing to skip this one</h3>
+  <p>
+    A deliberate skip. It is recorded as its own outcome, kept distinct from a miss, and the
+    interface is not judgemental about it.
+  </p>
+  <p>
+    You can add a reason: <em>Busy, Tired, Forgot, Not feeling well, Unexpected event, Not important
+    today, Schedule conflict, Other</em> &mdash; plus an optional note. Reasons are optional unless
+    you turned on <strong>Ask why when passing</strong> for that behavior.
+  </p>
+  <p>
+    Passing the same behavior three or more times in a week is something the coach will mention,
+    because it usually means the schedule is wrong rather than that you are failing.
+  </p>
+
+  <div class="tip">
+    <span class="t">Pass now, do it anyway later?</span>
+    That is allowed. Open the behavior, find the occurrence in its history, and tap
+    <strong>"I actually did this"</strong>. A late completion is still a completion.
+  </div>
+</section>
+
+<!-- ============================ 17. NOTIFICATION ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 17</div>
+  <h2>Answering from the notification</h2>
+
+  <div class="cols">
+    <div class="text">
+      <p class="lead">
+        You do not have to open the app. Every reminder carries its three actions, so a decision
+        costs one tap from the lock screen.
+      </p>
+
+      <table>
+        <tr><th style="width:74px;">Action</th><th>What it does</th></tr>
+        <tr><td><strong>COMMIT</strong></td><td>Same as on the full screen. Marks it in progress.</td></tr>
+        <tr><td><strong>LATER</strong></td><td>Recovers using the behavior's <em>default delay</em>.
+            A notification cannot show a picker, so it uses the number you configured.</td></tr>
+        <tr><td><strong>PASS</strong></td><td>Records a pass with no reason. If that behavior
+            <em>requires</em> a reason, this opens the full screen instead of silently recording a
+            bare pass.</td></tr>
+      </table>
+
+      <p>
+        Tapping the notification body &mdash; rather than an action &mdash; always opens the full
+        intervention screen, where the complete set of recovery times and pass reasons is available.
+      </p>
+
+      <h3>If the actions are not visible</h3>
+      <p>
+        Some launchers, watches and car interfaces collapse notification actions. The body is always
+        tappable, which is the fallback.
+      </p>
+
+      <h3>Strong behaviours</h3>
+      <p>
+        A Strong behavior additionally asks to show full-screen over the lock screen. On Android 14
+        and later this is restricted to calendar and alarm apps; if it is not granted, the reminder
+        degrades to a high-priority heads-up notification. Nothing breaks, it is just less
+        insistent.
+      </p>
+
+      <h3>The follow-up</h3>
+      <p>
+        Coach and Strong behaviours send <strong>one</strong> escalation reminder if you never
+        answered. One, not a stream &mdash; an app that will not stop is an app you uninstall.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>18:00</span><span>&#9723;</span></div>
+        <div class="screen" style="background:#3a3733;padding:20px 10px;min-height:230px;">
+          <div style="background:#fff;border-radius:9px;padding:9px;">
+            <div style="font-size:6.6pt;color:var(--on-surface-variant);">PACT &middot; now</div>
+            <div style="font-weight:700;margin-top:2px;">Strength training</div>
+            <div class="sub" style="line-height:1.35;">
+              It is time for Exercise. Whatever you can manage counts.<br>
+              Planned: 45 min &middot; Minimum: 5 min
+            </div>
+            <div style="display:flex;gap:4px;margin-top:8px;border-top:1px solid #eee;padding-top:6px;">
+              <span style="flex:1;text-align:center;color:var(--commit);font-weight:700;font-size:7.4pt;">COMMIT</span>
+              <span style="flex:1;text-align:center;color:var(--recover);font-weight:700;font-size:7.4pt;">LATER</span>
+              <span style="flex:1;text-align:center;color:var(--pass);font-weight:700;font-size:7.4pt;">PASS</span>
+            </div>
+          </div>
+          <div style="text-align:center;color:#cfcac3;font-size:6.6pt;margin-top:10px;">
+            Tap the message itself for all options
+          </div>
+        </div>
+      </div>
+      <div class="caption">One tap from the lock screen. No unlock, no app launch.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 18-19. HOME AND TODAY ============================ -->
+<section class="page">
+  <div class="kicker">Chapters 18 &ndash; 19</div>
+  <h2>Home and Today</h2>
+
+  <div class="cols">
+    <div class="text">
+      <h3>Home &mdash; what do I need to do now?</h3>
+      <p>
+        The dashboard answers one question before anything else. Whatever is due sits at the top in
+        a full-width <strong>Now</strong> card, in the behavior's category colour, with a single
+        obvious button. Everything else on the screen is deliberately quieter than that card.
+      </p>
+      <p>Underneath, in order:</p>
+      <ul>
+        <li><strong>Overdue</strong> &mdash; the moment passed but nothing was recorded. Shown so
+            nothing disappears silently.</li>
+        <li><strong>Anytime today</strong> &mdash; flexible behaviours with no clock time. Tick them
+            off with the <em>Done</em> button.</li>
+        <li><strong>Upcoming</strong> &mdash; the next few, chronologically.</li>
+        <li><strong>Heads up</strong> &mdash; scheduling clashes. A warning only; PACT never moves
+            anything by itself.</li>
+        <li><strong>Today</strong> &mdash; a ring showing how much of the day is done, with the
+            counts written beside it.</li>
+      </ul>
+
+      <h3>Today &mdash; the whole day in order</h3>
+      <p>
+        The same day, strictly chronological, with a status pill on every row. Tap an open row to
+        answer it; tap a finished one to open that behavior's detail and history.
+      </p>
+
+      <div class="note">
+        <span class="t">Why the ring shows a fraction, not just a percentage</span>
+        "2 of 4" and "50%" are not the same information. Two out of four on a quiet day is a
+        different thing from twenty out of forty, and the app should not flatten that.
+      </div>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>17:12</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div class="sub">Monday 7 September</div>
+          <div class="sec">Now</div>
+          <div class="hero fitness">
+            <div style="display:flex;align-items:center;gap:7px;">
+              <span class="badge onhero">&#9855;</span>
+              <div>
+                <div class="eyebrow">Due now</div>
+                <div class="sub2">18:00</div>
+              </div>
+            </div>
+            <div class="title">Exercise</div>
+            <div class="sub2">Improve my physical fitness</div>
+            <div class="minpill">Minimum today: 5 min</div>
+            <div class="cta">RESPOND</div>
+          </div>
+
+          <div class="sec">Upcoming</div>
+          <div class="row"><div class="time">20:00</div><div class="name">Read
+            <div class="sub" style="font-size:6.4pt;">Learn something new</div></div>
+            <span class="pill p-up">&middot; Upcoming</span></div>
+
+          <div class="sec">Today</div>
+          <div class="card plain">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div class="ring-wrap">
+                <svg width="58" height="58" viewBox="0 0 42 42">
+                  <circle cx="21" cy="21" r="17" fill="none" stroke="#E8DFD3" stroke-width="5"/>
+                  <circle cx="21" cy="21" r="17" fill="none" stroke="#2F6F62" stroke-width="5"
+                          stroke-linecap="round" stroke-dasharray="53.4 106.8"
+                          transform="rotate(-90 21 21)"/>
+                  <text x="21" y="24.5" text-anchor="middle" font-size="8"
+                        font-family="Segoe UI, Arial" fill="#2F6F62" font-weight="600">2/4</text>
+                </svg>
+                <div class="rlab">of today done</div>
+              </div>
+              <div style="flex:1;">
+                <div class="row" style="border:none;padding:1px 0;">
+                  <span style="width:6px;height:6px;border-radius:50%;background:#1A1C1B;display:inline-block;"></span>
+                  <div class="name">Scheduled</div><strong>4</strong></div>
+                <div class="row" style="border:none;padding:1px 0;">
+                  <span style="width:6px;height:6px;border-radius:50%;background:#2F6F62;display:inline-block;"></span>
+                  <div class="name">Completed</div><strong style="color:#2F6F62;">2</strong></div>
+                <div class="row" style="border:none;padding:1px 0;">
+                  <span style="width:6px;height:6px;border-radius:50%;background:#3F6C9E;display:inline-block;"></span>
+                  <div class="name">Moved later</div><strong style="color:#3F6C9E;">1</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navbar"><span class="n on">Home</span><span class="n">Today</span>
+          <span class="n">Goals</span><span class="n">Insights</span><span class="n">Settings</span></div>
+      </div>
+      <div class="caption">The dashboard. The Now card is the loudest thing on the screen, on
+        purpose.</div>
+    </div>
+  </div>
+
+  <div class="gallery" style="margin-top:14px;">
+    <div>
+      <div class="phone" style="width:212px;">
+        <div class="status"><span>21:04</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div class="sh1" style="font-size:12pt;">Monday 7 September</div>
+          <div class="sub">3 of 5 done, 1 moved</div>
+          <div style="margin-top:8px;">
+            <div class="row"><div class="time">06:30</div><div class="name">Exercise</div>
+              <span class="pill p-done">&#10003; Completed</span></div>
+            <div class="row"><div class="time">10:00</div><div class="name">Read</div>
+              <span class="pill p-done">&#10003; Completed</span></div>
+            <div class="row"><div class="time">17:00</div><div class="name">Teaching materials</div>
+              <span class="pill p-rec">&#8635; Moved later</span></div>
+            <div class="row"><div class="time">17:30</div><div class="name">Teaching materials</div>
+              <span class="pill p-done">&#10003; Completed</span></div>
+            <div class="row"><div class="time">18:00</div><div class="name">Exercise</div>
+              <span class="pill p-miss">! Missed</span></div>
+            <div class="row"><div class="time">20:00</div><div class="name">Read</div>
+              <span class="pill p-up">&middot; Upcoming</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="caption" style="max-width:212px;">Today. The 17:00 session was moved to 17:30 and
+        finished &mdash; both rows are kept.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 20. INSIGHTS ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 20</div>
+  <h2>Insights and the recovery score</h2>
+
+  <div class="cols">
+    <div class="text">
+      <p class="lead">
+        Two headline rings. The one on the right is the number this app actually cares about.
+      </p>
+
+      <h3>Completed</h3>
+      <p>
+        The share of resolved occurrences that ended in a completion. Measured over
+        <strong>chains</strong>, so a session that was moved once and then done counts as one
+        completion &mdash; not as a miss plus a win.
+      </p>
+
+      <h3>Recovery score</h3>
+      <p>
+        <em>When you did not act at the planned time, how often did you come back to it?</em>
+      </p>
+      <p>
+        It is deliberately independent of how often you needed to recover. Needing to move things
+        around is life; whether you return is the skill. A high recovery score with a middling
+        completion rate is a genuinely healthy pattern, and this is the only app-level number that
+        will tell you so.
+      </p>
+
+      <h3>The rest of the Overview tab</h3>
+      <ul>
+        <li><strong>Outcomes</strong> &mdash; completed, passed and missed as counts, not just
+            percentages.</li>
+        <li><strong>Recent weeks</strong> &mdash; a small bar per week, oldest to newest.</li>
+        <li><strong>By day of week</strong> &mdash; where Tuesdays quietly fall apart.</li>
+        <li><strong>What the coach notices</strong> &mdash; observations, and sometimes a concrete
+            suggestion.</li>
+        <li><strong>By behavior</strong> &mdash; every behavior ranked by completion.</li>
+      </ul>
+
+      <h3>The coach</h3>
+      <p>
+        A fixed set of local rules over your own numbers. It never invents insight the data cannot
+        support, and it says so plainly when there is not enough history yet. Nothing is sent
+        anywhere; there is no model and no network call.
+      </p>
+      <p>Rules include:</p>
+      <ul>
+        <li>Above 85% completion &rarr; acknowledgement.</li>
+        <li>Below 50% after a week or more &rarr; suggest reviewing the schedule.</li>
+        <li>Recovering more than 40% of the time &rarr; the slot may be wrong.</li>
+        <li>One hour clearly outperforming another &rarr; offer to move it.</li>
+        <li>Mostly minimum completions &rarr; the target may be too high.</li>
+      </ul>
+
+      <div class="note">
+        <span class="t">Suggestions are never applied automatically</span>
+        When the coach proposes a schedule change you get two buttons: <strong>Apply change</strong>
+        and <strong>Keep schedule</strong>. Nothing moves until you choose.
+      </div>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>21:30</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div style="display:flex;border-bottom:1px solid var(--rule);font-size:7pt;margin-bottom:8px;">
+            <span style="flex:1;text-align:center;padding:4px;color:var(--sage);
+                  border-bottom:2px solid var(--sage);font-weight:700;">Overview</span>
+            <span style="flex:1;text-align:center;padding:4px;color:var(--on-surface-variant);">Review</span>
+            <span style="flex:1;text-align:center;padding:4px;color:var(--on-surface-variant);">Calendar</span>
+          </div>
+
+          <div class="card plain" style="display:flex;justify-content:space-around;padding:12px 6px;">
+            <div class="ring-wrap">
+              <svg width="66" height="66" viewBox="0 0 42 42">
+                <circle cx="21" cy="21" r="16" fill="none" stroke="#E8DFD3" stroke-width="5.5"/>
+                <circle cx="21" cy="21" r="16" fill="none" stroke="#2F6F62" stroke-width="5.5"
+                        stroke-linecap="round" stroke-dasharray="80.4 100.5"
+                        transform="rotate(-90 21 21)"/>
+                <text x="21" y="24" text-anchor="middle" font-size="8"
+                      font-family="Segoe UI, Arial" fill="#2F6F62" font-weight="600">80%</text>
+              </svg>
+              <div class="rlab">Completed</div>
+            </div>
+            <div class="ring-wrap">
+              <svg width="66" height="66" viewBox="0 0 42 42">
+                <circle cx="21" cy="21" r="16" fill="none" stroke="#E8DFD3" stroke-width="5.5"/>
+                <circle cx="21" cy="21" r="16" fill="none" stroke="#3F6C9E" stroke-width="5.5"
+                        stroke-linecap="round" stroke-dasharray="82.4 100.5"
+                        transform="rotate(-90 21 21)"/>
+                <text x="21" y="24" text-anchor="middle" font-size="8"
+                      font-family="Segoe UI, Arial" fill="#3F6C9E" font-weight="600">82%</text>
+              </svg>
+              <div class="rlab">Recovery score</div>
+            </div>
+          </div>
+
+          <div class="card plain" style="margin-top:7px;">
+            <div style="font-weight:600;">What the recovery score means</div>
+            <div class="sub" style="line-height:1.35;">
+              When you did not act at the planned time, you came back to it 82% of the time.
+              Returning to a behavior matters more than never missing one.
+            </div>
+          </div>
+
+          <div class="sec">What the coach notices</div>
+          <div style="border:1px solid rgba(63,108,158,.35);border-radius:9px;padding:8px;">
+            <div style="font-weight:600;">Better at a different hour</div>
+            <div class="sub" style="line-height:1.35;">You complete Exercise 85% of the time at
+              20:00, compared with 40% at 18:00.</div>
+            <div class="sub" style="margin-top:4px;">Consider moving Exercise from 18:00 to 20:00.</div>
+            <div style="display:flex;gap:5px;margin-top:6px;">
+              <span class="btn" style="flex:1;margin:0;">Apply change</span>
+              <span class="btn out" style="flex:1;margin:0;">Keep schedule</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Insights. The coach proposes; you decide.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 21-22. REVIEW AND CALENDAR ============================ -->
+<section class="page">
+  <div class="kicker">Chapters 21 &ndash; 22</div>
+  <h2>The weekly review and the calendar</h2>
+
+  <div class="cols">
+    <div class="text">
+      <h3>Weekly review</h3>
+      <p>
+        The <strong>Review</strong> tab summarises the last seven days: a bar per behavior showing
+        completed against scheduled, then four totals &mdash; completed, moved, passed, missed.
+      </p>
+      <p>
+        Underneath, the coach's observations for the week, including any schedule suggestions with
+        their <strong>Apply change</strong> / <strong>Keep schedule</strong> buttons.
+      </p>
+      <p>
+        Read it once a week. It is the natural moment to notice that the evening slot is not working
+        and to change it deliberately, rather than drifting.
+      </p>
+
+      <h3>Calendar</h3>
+      <p>
+        The <strong>Calendar</strong> tab shows a month at a time. Each day is tinted by its
+        dominant outcome and carries a symbol, so the pattern is readable without relying on colour.
+      </p>
+      <table>
+        <tr><td style="width:34px;font-size:13pt;text-align:center;color:#2F6F62;">&#10003;</td>
+            <td><strong>Completed</strong> &mdash; everything planned that day was done.</td></tr>
+        <tr><td style="font-size:13pt;text-align:center;color:#3F6C9E;">&#8635;</td>
+            <td><strong>Moved later</strong> &mdash; something was recovered.</td></tr>
+        <tr><td style="font-size:13pt;text-align:center;color:#8A8579;">&#8594;</td>
+            <td><strong>Passed</strong> &mdash; deliberately skipped.</td></tr>
+        <tr><td style="font-size:13pt;text-align:center;color:#A36A4A;">!</td>
+            <td><strong>Missed</strong> &mdash; never answered.</td></tr>
+      </table>
+      <p>
+        Use the <strong>Previous</strong> and <strong>Next</strong> buttons to move between months.
+        Days with nothing scheduled stay blank &mdash; a quiet day is not a failed one.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>21:30</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div class="sh2">Weekly review</div>
+          <div class="sub">2026-09-07 to 2026-09-13</div>
+          <div style="margin-top:8px;">
+            <div style="display:flex;justify-content:space-between;"><span>Exercise</span><span class="sub">11 / 14</span></div>
+            <div class="bar"><i style="width:79%"></i></div>
+          </div>
+          <div style="margin-top:6px;">
+            <div style="display:flex;justify-content:space-between;"><span>Read</span><span class="sub">6 / 7</span></div>
+            <div class="bar"><i style="width:86%"></i></div>
+          </div>
+          <div style="margin-top:6px;">
+            <div style="display:flex;justify-content:space-between;"><span>Teaching materials</span><span class="sub">4 / 5</span></div>
+            <div class="bar"><i style="width:80%"></i></div>
+          </div>
+
+          <div style="display:flex;gap:4px;margin-top:10px;">
+            <div class="stat"><div class="v" style="color:#2F6F62;">21</div><div class="k">Completed</div></div>
+            <div class="stat"><div class="v" style="color:#3F6C9E;">5</div><div class="k">Moved</div></div>
+            <div class="stat"><div class="v" style="color:#8A8579;">3</div><div class="k">Passed</div></div>
+            <div class="stat"><div class="v" style="color:#A36A4A;">1</div><div class="k">Missed</div></div>
+          </div>
+
+          <div class="sec">September 2026</div>
+          <div class="cal">
+            <div>1</div><div style="background:rgba(47,111,98,.7);color:#fff;">2&#10003;</div>
+            <div style="background:rgba(47,111,98,.7);color:#fff;">3&#10003;</div>
+            <div style="background:rgba(63,108,158,.5);">4&#8635;</div>
+            <div style="background:rgba(47,111,98,.7);color:#fff;">5&#10003;</div>
+            <div style="background:rgba(163,106,74,.5);">6!</div>
+            <div style="background:rgba(47,111,98,.7);color:#fff;">7&#10003;</div>
+            <div style="background:rgba(47,111,98,.35);">8&#10003;</div>
+            <div style="background:rgba(138,133,121,.4);">9&#8594;</div>
+            <div style="background:rgba(47,111,98,.7);color:#fff;">10&#10003;</div>
+            <div style="background:rgba(47,111,98,.7);color:#fff;">11&#10003;</div>
+            <div style="background:rgba(63,108,158,.5);">12&#8635;</div>
+            <div>13</div><div>14</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Weekly review and the month calendar.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 23. GOAL LIFECYCLE + EXCEPTIONS ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 23</div>
+  <h2>Finishing goals, and taking time off</h2>
+
+  <div class="cols">
+    <div class="text">
+      <h3>When a goal is done</h3>
+      <p>
+        Tap the <strong>&#8942;</strong> menu on any goal card. You get four options, and they are
+        genuinely different things:
+      </p>
+      <table>
+        <tr><td style="width:112px;"><strong>Mark as achieved</strong></td>
+            <td>You finished it. The goal is shown with a tick and struck through, and everything
+                under it &mdash; behaviours, history, statistics &mdash; is kept exactly as it is.
+                This is what you want most of the time.</td></tr>
+        <tr><td><strong>Pause</strong></td>
+            <td>Set aside for now. Nothing is deleted, and you can make it active again from the
+                same menu.</td></tr>
+        <tr><td><strong>Archive</strong></td>
+            <td>Filed away and out of the main flow, but still in your records.</td></tr>
+        <tr><td><strong>Delete</strong></td>
+            <td>Removes the goal itself. <strong>The behaviours under it are kept</strong>, along
+                with all of their history &mdash; they simply become unassigned. PACT will never
+                destroy months of records because you tidied up a goal.</td></tr>
+      </table>
+      <p>
+        The same actions are available at the bottom of the goal editor, including a
+        <strong>Mark as achieved</strong> button and <strong>Delete goal</strong>. Deleting always
+        asks first, and the dialog tells you exactly what will happen to the behaviours.
+      </p>
+
+      <h3>Skips, pauses and holidays</h3>
+      <p>
+        Open a behavior and find <strong>Skip or pause</strong>. Four one-tap options:
+        <em>Skip today</em>, <em>Skip tomorrow</em>, <em>Pause a week</em>, <em>Away 2 weeks</em>.
+      </p>
+      <div class="note">
+        <span class="t">These do not change your schedule</span>
+        A skip removes days from generation; the recurring plan underneath is untouched and picks up
+        again automatically afterwards. "Skip 10 September" leaves your daily rule exactly as it was.
+      </div>
+      <p>
+        Active skips are listed underneath with a <strong>Remove</strong> button, so you can end a
+        pause early.
+      </p>
+
+      <h3>Pausing a behavior entirely</h3>
+      <p>
+        The <strong>Active</strong> switch on the behavior detail screen stops it firing reminders
+        indefinitely, without deleting anything. Use it for something you have genuinely stopped
+        doing but might return to.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div class="gcard">
+            <div class="spine" style="background:#3E7CA6;"></div>
+            <div class="body">
+              <div style="display:flex;align-items:center;gap:7px;">
+                <span class="badge" style="background:#D8E8F2;color:#3E7CA6;">&#9855;</span>
+                <div style="flex:1;">
+                  <div style="font-weight:600;">Improve my fitness</div>
+                  <div style="color:#3E7CA6;font-size:6.6pt;">Fitness</div>
+                </div>
+                <span style="color:var(--on-surface-variant);">&#8942;</span>
+              </div>
+              <div class="sub" style="margin-top:4px;">I could not keep up with the kids</div>
+              <div style="display:flex;align-items:center;gap:9px;margin-top:7px;">
+                <svg width="48" height="48" viewBox="0 0 42 42">
+                  <circle cx="21" cy="21" r="16" fill="none" stroke="#E8DFD3" stroke-width="5"/>
+                  <circle cx="21" cy="21" r="16" fill="none" stroke="#3E7CA6" stroke-width="5"
+                          stroke-linecap="round" stroke-dasharray="80 100.5" transform="rotate(-90 21 21)"/>
+                  <text x="21" y="24" text-anchor="middle" font-size="7.5"
+                        font-family="Segoe UI, Arial" fill="#3E7CA6" font-weight="600">80%</text>
+                </svg>
+                <div style="flex:1;">
+                  <div class="row" style="border:none;padding:2px 0;">
+                    <span style="width:6px;height:6px;border-radius:50%;background:#3E7CA6;display:inline-block;"></span>
+                    <div class="name">Exercise</div><span class="sub">83%</span></div>
+                  <div class="row" style="border:none;padding:2px 0;">
+                    <span style="width:6px;height:6px;border-radius:50%;background:#3E7CA6;display:inline-block;"></span>
+                    <div class="name">Stretch</div><span class="sub">71%</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:flex-end;margin-top:2px;">
+            <div class="menu">
+              <div>&#10003;&nbsp; Mark as achieved</div>
+              <div>&#9208;&nbsp; Pause</div>
+              <div>&#128451;&nbsp; Archive</div>
+              <div class="danger">&#128465;&nbsp; Delete</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">The goal menu. "Mark as achieved" keeps everything; "Delete" removes only
+        the goal.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 24-25. SETTINGS AND BACKUP ============================ -->
+<section class="page">
+  <div class="kicker">Chapters 24 &ndash; 25</div>
+  <h2>Settings and backup</h2>
+
+  <div class="cols">
+    <div class="text">
+      <h3>Appearance</h3>
+      <p>Light, dark, or follow the system. 24-hour clock on or off. Week starting Monday, Sunday or
+         Saturday.</p>
+
+      <h3>Reminders</h3>
+      <p>Defaults for new behaviours: sound on/off, vibration on/off, the default sound, and the
+         default insistence level. Individual behaviours can override any of these.</p>
+
+      <h3>Coach</h3>
+      <table>
+        <tr><td style="width:96px;"><strong>Personality</strong></td>
+            <td>Supportive, Professional, Direct, Motivational or Minimal. Changes the wording of
+                intervention and outcome messages, nothing else.</td></tr>
+        <tr><td><strong>How much</strong></td>
+            <td>Low, Normal or High &mdash; caps how many observations the coach shows at once.</td></tr>
+        <tr><td><strong>Ask how it went</strong></td>
+            <td>Never, Sometimes or Always.</td></tr>
+      </table>
+
+      <h3>Backup: export</h3>
+      <p>
+        <strong>Export data</strong> writes a single JSON file wherever you choose &mdash; Drive,
+        local storage, anywhere. It contains everything: goals, behaviours, schedules, day plans,
+        every occurrence and outcome, and your settings.
+      </p>
+      <div class="warn">
+        <span class="t">Do this regularly</span>
+        Your history exists only on this phone. PACT switches off Android's automatic cloud backup
+        deliberately, so nothing is copied to your Google account. A lost or reset phone with no
+        export means the history is gone.
+      </div>
+
+      <h3>Backup: import</h3>
+      <p>
+        <strong>Import data</strong> reads a file, validates it, and shows you what it contains
+        before writing anything. Then you choose:
+      </p>
+      <ul>
+        <li><strong>Merge, keep what I have</strong> &mdash; adds only what is missing. Nothing
+            existing is overwritten.</li>
+        <li><strong>Replace everything</strong> &mdash; deletes all current data first. The dialog
+            says so plainly.</li>
+      </ul>
+      <p>
+        A file that is damaged, incomplete, or from a newer version of PACT is rejected with an
+        explanation, and your existing data is left untouched.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen">
+          <div class="sec">Coach personality</div>
+          <div><span class="chip on">Supportive</span><span class="chip">Professional</span>
+               <span class="chip">Direct</span><span class="chip">Motivational</span>
+               <span class="chip">Minimal</span></div>
+
+          <div class="sec">Privacy</div>
+          <div class="card">
+            <div style="font-weight:600;">Your behavioural data is stored locally on this device.</div>
+            <div style="font-size:7.2pt;line-height:1.35;margin-top:4px;">
+              PACT does not request internet access at all: the permission is not in the app, so it
+              cannot send your data anywhere even if it wanted to. No accounts, no analytics, no
+              advertising, no cloud backup.
+            </div>
+          </div>
+
+          <div class="sec">Backup</div>
+          <div class="sub" style="line-height:1.35;">
+            Because there is no cloud, exporting is how you move your history to a new phone.
+          </div>
+          <div style="display:flex;gap:5px;margin-top:6px;">
+            <span class="btn" style="flex:1;margin:0;">Export data</span>
+            <span class="btn out" style="flex:1;margin:0;">Import data</span>
+          </div>
+
+          <div style="border:1px solid var(--rule);border-radius:8px;padding:8px;margin-top:10px;">
+            <div style="font-weight:600;">Import this backup?</div>
+            <div class="sub">3 goals, 7 behaviors and 412 history entries.</div>
+            <div style="margin-top:5px;">
+              <span class="chip on">Merge, keep what I have</span><br>
+              <span class="chip">Replace everything</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Settings, the privacy statement, and the import confirmation.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 26. TROUBLESHOOTING ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 26</div>
+  <h2>When reminders do not arrive</h2>
+
+  <p class="lead">
+    Almost always one of five things, in this order of likelihood.
+  </p>
+
+  <h3>1. Battery optimisation is killing the app</h3>
+  <p>
+    By far the most common cause, especially on Xiaomi, Samsung, Huawei, OnePlus, Oppo and Vivo
+    devices. Their power managers stop background apps aggressively, and no app can reliably work
+    around it.
+  </p>
+  <p>
+    <strong>Fix:</strong> Settings &rarr; Battery settings &rarr; find PACT &rarr; set to
+    <em>Unrestricted</em> (wording varies). On some phones you must also "lock" the app in the
+    recent-apps view.
+  </p>
+
+  <h3>2. The exact-alarm permission is not granted</h3>
+  <p>
+    Reminders still fire, but within a ten-minute window rather than at the minute.
+  </p>
+  <p>
+    <strong>Fix:</strong> Settings &rarr; Alarm permission &rarr; allow. The status line above the
+    button tells you the current state.
+  </p>
+
+  <h3>3. Notifications are blocked</h3>
+  <p>
+    <strong>Fix:</strong> Settings shows <em>Notifications: Blocked in system settings</em>. Go to
+    Android's Settings &rarr; Apps &rarr; PACT &rarr; Notifications and allow them. Check the
+    behavior's own channel is enabled too.
+  </p>
+
+  <h3>4. Do Not Disturb or a focus mode</h3>
+  <p>
+    <strong>Fix:</strong> Allow PACT through your DND rules, or use <strong>Strong</strong>
+    enforcement for behaviours that must get through &mdash; it uses the platform's alarm channel,
+    which most DND profiles permit.
+  </p>
+
+  <h3>5. The app was force-stopped</h3>
+  <p>
+    Force-stopping clears all scheduled alarms until the app is opened again. This also happens
+    after some system updates.
+  </p>
+  <p>
+    <strong>Fix:</strong> Open PACT. It rebuilds every alarm on launch, on reboot, and after an app
+    update, automatically.
+  </p>
+
+  <div class="note">
+    <span class="t">Diagnose it in fifteen seconds</span>
+    Settings &rarr; <strong>Test my reminder</strong> fires a real alarm through the real pipeline
+    and reports exactly what happened, including whether precision was lost. Start there rather than
+    guessing.
+  </div>
+
+  <h3>Other things worth knowing</h3>
+  <table>
+    <tr><th style="width:170px;">Symptom</th><th>Explanation</th></tr>
+    <tr><td>A changed sound did not take effect</td>
+        <td>Android bakes the sound into a notification channel and will not let an app edit it.
+            PACT creates a fresh channel; if it still sounds wrong, check the behavior's channel in
+            Android's notification settings.</td></tr>
+    <tr><td>The custom sound reverted to default</td>
+        <td>The file moved, was deleted, or access was revoked. PACT checks every sound before use
+            and falls back rather than failing silently.</td></tr>
+    <tr><td>Reminders shifted after travelling</td>
+        <td>Intended. Times are kept as wall-clock: 06:30 stays 06:30 in the new time zone.</td></tr>
+    <tr><td>"App not installed" when updating</td>
+        <td>Signature mismatch. Export your data, uninstall, then install the new version.</td></tr>
+  </table>
+</section>
+
+<!-- ============================ 27. REFERENCE ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 27</div>
+  <h2>Reference</h2>
+
+  <h3>Outcome states</h3>
+  <table>
+    <tr><th style="width:96px;">State</th><th style="width:34px;">Symbol</th><th>Meaning</th></tr>
+    <tr><td><strong>Upcoming</strong></td><td style="text-align:center;">&middot;</td>
+        <td>Scheduled, not yet due.</td></tr>
+    <tr><td><strong>Due now</strong></td><td style="text-align:center;">&#9679;</td>
+        <td>The alarm has fired and is waiting for you.</td></tr>
+    <tr><td><strong>In progress</strong></td><td style="text-align:center;">&#9679;</td>
+        <td>You committed; it is not finished yet.</td></tr>
+    <tr><td><strong>Completed</strong></td><td style="text-align:center;color:#2F6F62;">&#10003;</td>
+        <td>Done, at the full target or the minimum.</td></tr>
+    <tr><td><strong>Moved later</strong></td><td style="text-align:center;color:#3F6C9E;">&#8635;</td>
+        <td>Recovered. A new occurrence was created; this one is closed.</td></tr>
+    <tr><td><strong>Passed</strong></td><td style="text-align:center;color:#8A8579;">&#8594;</td>
+        <td>Deliberately skipped.</td></tr>
+    <tr><td><strong>Missed</strong></td><td style="text-align:center;color:#A36A4A;">!</td>
+        <td>Never answered, and the grace window expired.</td></tr>
+    <tr><td><strong>Cancelled</strong></td><td style="text-align:center;">&ndash;</td>
+        <td>Removed before it could happen.</td></tr>
+  </table>
+
+  <h3>What counts as what</h3>
+  <table>
+    <tr><th style="width:180px;">Number</th><th>How it is calculated</th></tr>
+    <tr><td><strong>Completion rate</strong></td>
+        <td>Completed chains &divide; resolved chains. A recovered-then-completed chain counts once,
+            as a completion.</td></tr>
+    <tr><td><strong>Recovery score</strong></td>
+        <td>Recovered chains that ended completed &divide; all chains that involved a recovery.</td></tr>
+    <tr><td><strong>Streak</strong></td>
+        <td>Consecutive <em>scheduled</em> days where everything planned was completed. A Mon/Wed/Fri
+            behavior is not penalised for Tuesday.</td></tr>
+    <tr><td><strong>Minimum share</strong></td>
+        <td>Minimum completions &divide; all completions.</td></tr>
+  </table>
+
+  <h3>Privacy, in one paragraph</h3>
+  <p>
+    PACT does not declare the internet permission. Android therefore refuses every network
+    connection the app could attempt &mdash; this is enforced by the operating system, not by the
+    app's good behaviour. There is no account, no analytics, no advertising, no crash reporting and
+    no cloud backup. Your data moves only when you export it yourself.
+  </p>
+
+  <h3>Android versions</h3>
+  <table>
+    <tr><td style="width:150px;"><strong>Minimum</strong></td><td>Android 8.0 (API 26)</td></tr>
+    <tr><td><strong>Built against</strong></td><td>Android 16 (API 36)</td></tr>
+    <tr><td><strong>Permissions</strong></td>
+        <td>Notifications, exact alarms, boot-completed, vibration, full-screen intent</td></tr>
+  </table>
+
+  <div class="footer-note">
+    <strong>One last thing.</strong> If you find yourself dreading the app, something is set wrong
+    &mdash; usually a target that is too ambitious or a time that never really worked. Lower the
+    target, move the slot, or set a minimum you could do while ill. The app is supposed to make
+    returning easy, not make missing expensive.
+  </div>
+
+  <div style="text-align:center;margin-top:34px;color:var(--sage);font-size:12pt;">
+    Success is not never missing. Success is returning to the behavior.
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,1409 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "845889611ef68e87f4a500ec79fdc3aa",
+    "entities": [
+      {
+        "tableName": "goals",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `category` TEXT NOT NULL, `whyItMatters` TEXT NOT NULL, `startDateEpochDay` INTEGER NOT NULL, `targetDateEpochDay` INTEGER, `priority` TEXT NOT NULL, `status` TEXT NOT NULL, `colorSeed` INTEGER NOT NULL, `createdAtMillis` INTEGER NOT NULL, `updatedAtMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "whyItMatters",
+            "columnName": "whyItMatters",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startDateEpochDay",
+            "columnName": "startDateEpochDay",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "targetDateEpochDay",
+            "columnName": "targetDateEpochDay",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "priority",
+            "columnName": "priority",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "colorSeed",
+            "columnName": "colorSeed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtMillis",
+            "columnName": "createdAtMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAtMillis",
+            "columnName": "updatedAtMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_goals_status",
+            "unique": false,
+            "columnNames": [
+              "status"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_goals_status` ON `${TABLE_NAME}` (`status`)"
+          },
+          {
+            "name": "index_goals_category",
+            "unique": false,
+            "columnNames": [
+              "category"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_goals_category` ON `${TABLE_NAME}` (`category`)"
+          }
+        ]
+      },
+      {
+        "tableName": "behaviors",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `goalId` TEXT, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `category` TEXT NOT NULL, `isTimeBased` INTEGER NOT NULL, `measurement` TEXT NOT NULL, `importance` TEXT NOT NULL, `difficulty` TEXT NOT NULL, `enforcement` TEXT NOT NULL, `targetDurationMinutes` INTEGER, `minimumDurationMinutes` INTEGER, `targetQuantity` REAL, `minimumQuantity` REAL, `quantityUnit` TEXT NOT NULL, `defaultInstruction` TEXT NOT NULL, `notes` TEXT NOT NULL, `reminderEnabled` INTEGER NOT NULL, `soundEnabled` INTEGER NOT NULL, `vibrationEnabled` INTEGER NOT NULL, `soundUri` TEXT, `vibrationPattern` TEXT NOT NULL, `preAlertMinutes` INTEGER, `escalationMinutes` INTEGER, `channelVersion` INTEGER NOT NULL, `recoveryEnabled` INTEGER NOT NULL, `maxRecoveriesPerInstance` INTEGER NOT NULL, `defaultRecoveryMinutes` INTEGER NOT NULL, `missWindowMinutes` INTEGER NOT NULL, `reflectionFrequency` TEXT NOT NULL, `allowPartialChecklist` INTEGER NOT NULL, `requirePassReason` INTEGER NOT NULL, `isActive` INTEGER NOT NULL, `progressionEnabled` INTEGER NOT NULL, `createdAtMillis` INTEGER NOT NULL, `updatedAtMillis` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`goalId`) REFERENCES `goals`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "goalId",
+            "columnName": "goalId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isTimeBased",
+            "columnName": "isTimeBased",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "measurement",
+            "columnName": "measurement",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "importance",
+            "columnName": "importance",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "difficulty",
+            "columnName": "difficulty",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "enforcement",
+            "columnName": "enforcement",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "targetDurationMinutes",
+            "columnName": "targetDurationMinutes",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "minimumDurationMinutes",
+            "columnName": "minimumDurationMinutes",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "targetQuantity",
+            "columnName": "targetQuantity",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "minimumQuantity",
+            "columnName": "minimumQuantity",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "quantityUnit",
+            "columnName": "quantityUnit",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defaultInstruction",
+            "columnName": "defaultInstruction",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reminderEnabled",
+            "columnName": "reminderEnabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "soundEnabled",
+            "columnName": "soundEnabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vibrationEnabled",
+            "columnName": "vibrationEnabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "soundUri",
+            "columnName": "soundUri",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "vibrationPattern",
+            "columnName": "vibrationPattern",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "preAlertMinutes",
+            "columnName": "preAlertMinutes",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "escalationMinutes",
+            "columnName": "escalationMinutes",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "channelVersion",
+            "columnName": "channelVersion",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "recoveryEnabled",
+            "columnName": "recoveryEnabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "maxRecoveriesPerInstance",
+            "columnName": "maxRecoveriesPerInstance",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defaultRecoveryMinutes",
+            "columnName": "defaultRecoveryMinutes",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "missWindowMinutes",
+            "columnName": "missWindowMinutes",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reflectionFrequency",
+            "columnName": "reflectionFrequency",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "allowPartialChecklist",
+            "columnName": "allowPartialChecklist",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "requirePassReason",
+            "columnName": "requirePassReason",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "isActive",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "progressionEnabled",
+            "columnName": "progressionEnabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtMillis",
+            "columnName": "createdAtMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAtMillis",
+            "columnName": "updatedAtMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_behaviors_goalId",
+            "unique": false,
+            "columnNames": [
+              "goalId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_behaviors_goalId` ON `${TABLE_NAME}` (`goalId`)"
+          },
+          {
+            "name": "index_behaviors_isActive",
+            "unique": false,
+            "columnNames": [
+              "isActive"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_behaviors_isActive` ON `${TABLE_NAME}` (`isActive`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "goals",
+            "onDelete": "SET NULL",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "goalId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "schedules",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `behaviorId` TEXT NOT NULL, `recurrenceType` TEXT NOT NULL, `daysOfWeekMask` INTEGER NOT NULL, `intervalDays` INTEGER NOT NULL, `anchorDateEpochDay` INTEGER, `startDateEpochDay` INTEGER NOT NULL, `endDateEpochDay` INTEGER, `timesOfDayCsv` TEXT NOT NULL, `timesPerWeek` INTEGER, `timesPerDay` INTEGER NOT NULL, `isEnabled` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`behaviorId`) REFERENCES `behaviors`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "behaviorId",
+            "columnName": "behaviorId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "recurrenceType",
+            "columnName": "recurrenceType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "daysOfWeekMask",
+            "columnName": "daysOfWeekMask",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "intervalDays",
+            "columnName": "intervalDays",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "anchorDateEpochDay",
+            "columnName": "anchorDateEpochDay",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "startDateEpochDay",
+            "columnName": "startDateEpochDay",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endDateEpochDay",
+            "columnName": "endDateEpochDay",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "timesOfDayCsv",
+            "columnName": "timesOfDayCsv",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timesPerWeek",
+            "columnName": "timesPerWeek",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "timesPerDay",
+            "columnName": "timesPerDay",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isEnabled",
+            "columnName": "isEnabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_schedules_behaviorId",
+            "unique": false,
+            "columnNames": [
+              "behaviorId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_schedules_behaviorId` ON `${TABLE_NAME}` (`behaviorId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "behaviors",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "behaviorId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "daily_instructions",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `behaviorId` TEXT NOT NULL, `dayOfWeek` INTEGER, `dateEpochDay` INTEGER, `occurrenceIndex` INTEGER, `title` TEXT NOT NULL, `instructions` TEXT NOT NULL, `durationMinutes` INTEGER, `quantityTarget` REAL, `notes` TEXT NOT NULL, `referenceUri` TEXT, `imageUri` TEXT, `isRestDay` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`behaviorId`) REFERENCES `behaviors`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "behaviorId",
+            "columnName": "behaviorId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dayOfWeek",
+            "columnName": "dayOfWeek",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "dateEpochDay",
+            "columnName": "dateEpochDay",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "occurrenceIndex",
+            "columnName": "occurrenceIndex",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "instructions",
+            "columnName": "instructions",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "durationMinutes",
+            "columnName": "durationMinutes",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "quantityTarget",
+            "columnName": "quantityTarget",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "referenceUri",
+            "columnName": "referenceUri",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "imageUri",
+            "columnName": "imageUri",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "isRestDay",
+            "columnName": "isRestDay",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_daily_instructions_behaviorId",
+            "unique": false,
+            "columnNames": [
+              "behaviorId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_daily_instructions_behaviorId` ON `${TABLE_NAME}` (`behaviorId`)"
+          },
+          {
+            "name": "index_daily_instructions_behaviorId_dayOfWeek",
+            "unique": false,
+            "columnNames": [
+              "behaviorId",
+              "dayOfWeek"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_daily_instructions_behaviorId_dayOfWeek` ON `${TABLE_NAME}` (`behaviorId`, `dayOfWeek`)"
+          },
+          {
+            "name": "index_daily_instructions_behaviorId_dateEpochDay",
+            "unique": false,
+            "columnNames": [
+              "behaviorId",
+              "dateEpochDay"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_daily_instructions_behaviorId_dateEpochDay` ON `${TABLE_NAME}` (`behaviorId`, `dateEpochDay`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "behaviors",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "behaviorId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "checklist_items",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `behaviorId` TEXT NOT NULL, `dailyInstructionId` TEXT, `position` INTEGER NOT NULL, `text` TEXT NOT NULL, `isRequired` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`behaviorId`) REFERENCES `behaviors`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "behaviorId",
+            "columnName": "behaviorId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dailyInstructionId",
+            "columnName": "dailyInstructionId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "position",
+            "columnName": "position",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isRequired",
+            "columnName": "isRequired",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_checklist_items_behaviorId",
+            "unique": false,
+            "columnNames": [
+              "behaviorId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_checklist_items_behaviorId` ON `${TABLE_NAME}` (`behaviorId`)"
+          },
+          {
+            "name": "index_checklist_items_dailyInstructionId",
+            "unique": false,
+            "columnNames": [
+              "dailyInstructionId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_checklist_items_dailyInstructionId` ON `${TABLE_NAME}` (`dailyInstructionId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "behaviors",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "behaviorId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "checklist_ticks",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`instanceId` TEXT NOT NULL, `checklistItemId` TEXT NOT NULL, `isChecked` INTEGER NOT NULL, PRIMARY KEY(`instanceId`, `checklistItemId`))",
+        "fields": [
+          {
+            "fieldPath": "instanceId",
+            "columnName": "instanceId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "checklistItemId",
+            "columnName": "checklistItemId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isChecked",
+            "columnName": "isChecked",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "instanceId",
+            "checklistItemId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_checklist_ticks_instanceId",
+            "unique": false,
+            "columnNames": [
+              "instanceId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_checklist_ticks_instanceId` ON `${TABLE_NAME}` (`instanceId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "behavior_instances",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `behaviorId` TEXT NOT NULL, `scheduleId` TEXT, `scheduledDateEpochDay` INTEGER NOT NULL, `scheduledTimeMinutes` INTEGER, `scheduledAtUtcMillis` INTEGER, `zoneId` TEXT NOT NULL, `occurrenceIndex` INTEGER NOT NULL, `state` TEXT NOT NULL, `originInstanceId` TEXT, `rootInstanceId` TEXT, `recoveryDepth` INTEGER NOT NULL, `firedAtMillis` INTEGER, `respondedAtMillis` INTEGER, `completedAtMillis` INTEGER, `completionQuality` TEXT, `actualDurationMinutes` INTEGER, `actualQuantity` REAL, `rating` INTEGER, `note` TEXT NOT NULL, `passReason` TEXT, `passNote` TEXT NOT NULL, `alarmRequestCode` INTEGER NOT NULL, `dedupKey` TEXT NOT NULL, `createdAtMillis` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`behaviorId`) REFERENCES `behaviors`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "behaviorId",
+            "columnName": "behaviorId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "scheduleId",
+            "columnName": "scheduleId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "scheduledDateEpochDay",
+            "columnName": "scheduledDateEpochDay",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "scheduledTimeMinutes",
+            "columnName": "scheduledTimeMinutes",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "scheduledAtUtcMillis",
+            "columnName": "scheduledAtUtcMillis",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "zoneId",
+            "columnName": "zoneId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "occurrenceIndex",
+            "columnName": "occurrenceIndex",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "originInstanceId",
+            "columnName": "originInstanceId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "rootInstanceId",
+            "columnName": "rootInstanceId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "recoveryDepth",
+            "columnName": "recoveryDepth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firedAtMillis",
+            "columnName": "firedAtMillis",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "respondedAtMillis",
+            "columnName": "respondedAtMillis",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "completedAtMillis",
+            "columnName": "completedAtMillis",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "completionQuality",
+            "columnName": "completionQuality",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "actualDurationMinutes",
+            "columnName": "actualDurationMinutes",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "actualQuantity",
+            "columnName": "actualQuantity",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "rating",
+            "columnName": "rating",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "note",
+            "columnName": "note",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "passReason",
+            "columnName": "passReason",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "passNote",
+            "columnName": "passNote",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "alarmRequestCode",
+            "columnName": "alarmRequestCode",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dedupKey",
+            "columnName": "dedupKey",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtMillis",
+            "columnName": "createdAtMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_behavior_instances_dedupKey",
+            "unique": true,
+            "columnNames": [
+              "dedupKey"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_behavior_instances_dedupKey` ON `${TABLE_NAME}` (`dedupKey`)"
+          },
+          {
+            "name": "index_behavior_instances_behaviorId",
+            "unique": false,
+            "columnNames": [
+              "behaviorId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_behavior_instances_behaviorId` ON `${TABLE_NAME}` (`behaviorId`)"
+          },
+          {
+            "name": "index_behavior_instances_scheduledDateEpochDay",
+            "unique": false,
+            "columnNames": [
+              "scheduledDateEpochDay"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_behavior_instances_scheduledDateEpochDay` ON `${TABLE_NAME}` (`scheduledDateEpochDay`)"
+          },
+          {
+            "name": "index_behavior_instances_state",
+            "unique": false,
+            "columnNames": [
+              "state"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_behavior_instances_state` ON `${TABLE_NAME}` (`state`)"
+          },
+          {
+            "name": "index_behavior_instances_scheduledAtUtcMillis",
+            "unique": false,
+            "columnNames": [
+              "scheduledAtUtcMillis"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_behavior_instances_scheduledAtUtcMillis` ON `${TABLE_NAME}` (`scheduledAtUtcMillis`)"
+          },
+          {
+            "name": "index_behavior_instances_rootInstanceId",
+            "unique": false,
+            "columnNames": [
+              "rootInstanceId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_behavior_instances_rootInstanceId` ON `${TABLE_NAME}` (`rootInstanceId`)"
+          },
+          {
+            "name": "index_behavior_instances_behaviorId_scheduledDateEpochDay",
+            "unique": false,
+            "columnNames": [
+              "behaviorId",
+              "scheduledDateEpochDay"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_behavior_instances_behaviorId_scheduledDateEpochDay` ON `${TABLE_NAME}` (`behaviorId`, `scheduledDateEpochDay`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "behaviors",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "behaviorId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "action_events",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `instanceId` TEXT, `behaviorId` TEXT, `type` TEXT NOT NULL, `atMillis` INTEGER NOT NULL, `fromState` TEXT, `toState` TEXT, `detail` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "instanceId",
+            "columnName": "instanceId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "behaviorId",
+            "columnName": "behaviorId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "atMillis",
+            "columnName": "atMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fromState",
+            "columnName": "fromState",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "toState",
+            "columnName": "toState",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "detail",
+            "columnName": "detail",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_action_events_instanceId",
+            "unique": false,
+            "columnNames": [
+              "instanceId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_action_events_instanceId` ON `${TABLE_NAME}` (`instanceId`)"
+          },
+          {
+            "name": "index_action_events_behaviorId",
+            "unique": false,
+            "columnNames": [
+              "behaviorId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_action_events_behaviorId` ON `${TABLE_NAME}` (`behaviorId`)"
+          },
+          {
+            "name": "index_action_events_atMillis",
+            "unique": false,
+            "columnNames": [
+              "atMillis"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_action_events_atMillis` ON `${TABLE_NAME}` (`atMillis`)"
+          }
+        ]
+      },
+      {
+        "tableName": "behavior_exceptions",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `behaviorId` TEXT, `type` TEXT NOT NULL, `startDateEpochDay` INTEGER NOT NULL, `endDateEpochDay` INTEGER NOT NULL, `note` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "behaviorId",
+            "columnName": "behaviorId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startDateEpochDay",
+            "columnName": "startDateEpochDay",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endDateEpochDay",
+            "columnName": "endDateEpochDay",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "note",
+            "columnName": "note",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_behavior_exceptions_behaviorId",
+            "unique": false,
+            "columnNames": [
+              "behaviorId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_behavior_exceptions_behaviorId` ON `${TABLE_NAME}` (`behaviorId`)"
+          },
+          {
+            "name": "index_behavior_exceptions_startDateEpochDay",
+            "unique": false,
+            "columnNames": [
+              "startDateEpochDay"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_behavior_exceptions_startDateEpochDay` ON `${TABLE_NAME}` (`startDateEpochDay`)"
+          },
+          {
+            "name": "index_behavior_exceptions_endDateEpochDay",
+            "unique": false,
+            "columnNames": [
+              "endDateEpochDay"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_behavior_exceptions_endDateEpochDay` ON `${TABLE_NAME}` (`endDateEpochDay`)"
+          }
+        ]
+      },
+      {
+        "tableName": "behavior_templates",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `category` TEXT NOT NULL, `isTimeBased` INTEGER NOT NULL, `measurement` TEXT NOT NULL, `importance` TEXT NOT NULL, `difficulty` TEXT NOT NULL, `enforcement` TEXT NOT NULL, `targetDurationMinutes` INTEGER, `minimumDurationMinutes` INTEGER, `targetQuantity` REAL, `quantityUnit` TEXT NOT NULL, `defaultInstruction` TEXT NOT NULL, `recurrenceType` TEXT NOT NULL, `daysOfWeekMask` INTEGER NOT NULL, `intervalDays` INTEGER NOT NULL, `timesOfDayCsv` TEXT NOT NULL, `defaultRecoveryMinutes` INTEGER NOT NULL, `isBuiltIn` INTEGER NOT NULL, `createdAtMillis` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isTimeBased",
+            "columnName": "isTimeBased",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "measurement",
+            "columnName": "measurement",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "importance",
+            "columnName": "importance",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "difficulty",
+            "columnName": "difficulty",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "enforcement",
+            "columnName": "enforcement",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "targetDurationMinutes",
+            "columnName": "targetDurationMinutes",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "minimumDurationMinutes",
+            "columnName": "minimumDurationMinutes",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "targetQuantity",
+            "columnName": "targetQuantity",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "quantityUnit",
+            "columnName": "quantityUnit",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defaultInstruction",
+            "columnName": "defaultInstruction",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "recurrenceType",
+            "columnName": "recurrenceType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "daysOfWeekMask",
+            "columnName": "daysOfWeekMask",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "intervalDays",
+            "columnName": "intervalDays",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timesOfDayCsv",
+            "columnName": "timesOfDayCsv",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defaultRecoveryMinutes",
+            "columnName": "defaultRecoveryMinutes",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isBuiltIn",
+            "columnName": "isBuiltIn",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtMillis",
+            "columnName": "createdAtMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "progression_steps",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `behaviorId` TEXT NOT NULL, `weekIndex` INTEGER NOT NULL, `targetDurationMinutes` INTEGER, `targetQuantity` REAL, PRIMARY KEY(`id`), FOREIGN KEY(`behaviorId`) REFERENCES `behaviors`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "behaviorId",
+            "columnName": "behaviorId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weekIndex",
+            "columnName": "weekIndex",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "targetDurationMinutes",
+            "columnName": "targetDurationMinutes",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "targetQuantity",
+            "columnName": "targetQuantity",
+            "affinity": "REAL"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_progression_steps_behaviorId",
+            "unique": false,
+            "columnNames": [
+              "behaviorId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_progression_steps_behaviorId` ON `${TABLE_NAME}` (`behaviorId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "behaviors",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "behaviorId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "coach_messages",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `behaviorId` TEXT, `kind` TEXT NOT NULL, `severity` TEXT NOT NULL, `title` TEXT NOT NULL, `body` TEXT NOT NULL, `recommendation` TEXT, `createdAtMillis` INTEGER NOT NULL, `acknowledgedAtMillis` INTEGER, `dedupKey` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "behaviorId",
+            "columnName": "behaviorId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "kind",
+            "columnName": "kind",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "severity",
+            "columnName": "severity",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "body",
+            "columnName": "body",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "recommendation",
+            "columnName": "recommendation",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "createdAtMillis",
+            "columnName": "createdAtMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "acknowledgedAtMillis",
+            "columnName": "acknowledgedAtMillis",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "dedupKey",
+            "columnName": "dedupKey",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_coach_messages_behaviorId",
+            "unique": false,
+            "columnNames": [
+              "behaviorId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_coach_messages_behaviorId` ON `${TABLE_NAME}` (`behaviorId`)"
+          },
+          {
+            "name": "index_coach_messages_createdAtMillis",
+            "unique": false,
+            "columnNames": [
+              "createdAtMillis"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_coach_messages_createdAtMillis` ON `${TABLE_NAME}` (`createdAtMillis`)"
+          },
+          {
+            "name": "index_coach_messages_dedupKey",
+            "unique": true,
+            "columnNames": [
+              "dedupKey"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_coach_messages_dedupKey` ON `${TABLE_NAME}` (`dedupKey`)"
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '845889611ef68e87f4a500ec79fdc3aa')"
+    ]
+  }
+}

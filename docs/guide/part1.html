@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PACT — User Guide</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<section class="page cover">
+  <div>
+    <div class="mark">P</div>
+    <h1>PACT</h1>
+    <div class="tag">Personal Action &amp; Commitment Tracker</div>
+    <div class="tag" style="font-size:11pt;margin-top:4px;">User Guide &middot; Version 1.0.0</div>
+  </div>
+
+  <div class="quote">
+    Success is not never missing.<br>
+    Success is <strong>returning</strong> to the behavior.
+  </div>
+
+  <div>
+    <p style="font-size:10pt;color:var(--ink-soft);max-width:430px;">
+      A personal behavioural coach for Android that reminds you at the moment you planned, then
+      asks one question: are you doing this now, coming back to it later, or letting it go today?
+    </p>
+    <div class="meta">
+      Works entirely offline &middot; No account &middot; No internet permission &middot; Android 8.0 and newer
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTENTS ============================ -->
+<section class="page">
+  <h2>Contents</h2>
+  <div class="toc">
+    <div class="grp">Getting started</div>
+    <a>1 &nbsp; What PACT is, and what it is not</a>
+    <a>2 &nbsp; Installing the app</a>
+    <a>3 &nbsp; First run: the two permissions that matter</a>
+    <a>4 &nbsp; Testing your reminders</a>
+    <a>5 &nbsp; Onboarding</a>
+
+    <div class="grp">Setting things up</div>
+    <a>6 &nbsp; Creating a goal</a>
+    <a>7 &nbsp; Creating a behavior</a>
+    <a>8 &nbsp; Schedules and times of day</a>
+    <a>9 &nbsp; The minimum action</a>
+    <a>10 &nbsp; What a behavior means each day</a>
+    <a>11 &nbsp; Reminder sound, vibration and insistence</a>
+    <a>12 &nbsp; Recovery settings</a>
+
+    <div class="grp">Daily use</div>
+    <a>13 &nbsp; The intervention screen</a>
+    <a>14 &nbsp; COMMIT</a>
+    <a>15 &nbsp; RECOVER</a>
+    <a>16 &nbsp; PASS</a>
+    <a>17 &nbsp; Answering from the notification</a>
+    <a>18 &nbsp; The Home dashboard</a>
+    <a>19 &nbsp; The Today timeline</a>
+
+    <div class="grp">Looking back</div>
+    <a>20 &nbsp; Insights and the recovery score</a>
+    <a>21 &nbsp; The weekly review</a>
+    <a>22 &nbsp; The calendar</a>
+    <a>23 &nbsp; Skips, pauses and holidays</a>
+
+    <div class="grp">Housekeeping</div>
+    <a>24 &nbsp; Settings</a>
+    <a>25 &nbsp; Backup: export and import</a>
+    <a>26 &nbsp; When reminders do not arrive</a>
+    <a>27 &nbsp; Reference: states and symbols</a>
+  </div>
+
+  <div class="note" style="margin-top:26px;">
+    <span class="t">About the pictures in this guide</span>
+    The screens shown throughout are <strong>illustrations</strong>, drawn to match the app's real
+    layout, colours and wording rather than photographed from a phone. Small spacing details may
+    differ slightly from what you see on your own device; every label, button and message is taken
+    from the app itself.
+  </div>
+</section>
+
+<!-- ============================ 1. CONCEPT ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 1</div>
+  <h2>What PACT is, and what it is not</h2>
+
+  <p class="lead">
+    Most habit apps count streaks. PACT is built around a different claim: the thing that decides
+    whether a behaviour survives is not whether you ever miss it, but whether you come back to it
+    after you do.
+  </p>
+
+  <p>
+    So PACT does not ask "did you keep the chain going?". It asks, at the moment you planned to
+    act, what you are actually going to do about it — and it treats <em>coming back later</em> as a
+    real, tracked, respectable answer rather than a failure.
+  </p>
+
+  <h3>The loop</h3>
+
+  <svg viewBox="0 0 700 132" style="width:100%;height:auto;margin:8px 0 4px;">
+    <defs>
+      <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="#7C7973"/>
+      </marker>
+    </defs>
+    <g font-family="Segoe UI, Arial" font-size="10" text-anchor="middle">
+      <rect x="2"   y="30" width="92" height="38" rx="8" fill="#B8E5D8"/>
+      <text x="48"  y="54" fill="#00201A" font-weight="600">GOAL</text>
+
+      <rect x="112" y="30" width="102" height="38" rx="8" fill="#B8E5D8"/>
+      <text x="163" y="54" fill="#00201A" font-weight="600">BEHAVIOR</text>
+
+      <rect x="232" y="30" width="98" height="38" rx="8" fill="#B8E5D8"/>
+      <text x="281" y="54" fill="#00201A" font-weight="600">SCHEDULE</text>
+
+      <rect x="348" y="30" width="112" height="38" rx="8" fill="#2F6F62"/>
+      <text x="404" y="54" fill="#ffffff" font-weight="600">INTERVENTION</text>
+
+      <rect x="478" y="30" width="98" height="38" rx="8" fill="#2F6F62"/>
+      <text x="527" y="54" fill="#ffffff" font-weight="600">DECISION</text>
+
+      <rect x="594" y="30" width="104" height="38" rx="8" fill="#E8DFD3"/>
+      <text x="646" y="54" fill="#1A1C1B" font-weight="600">OUTCOME</text>
+
+      <line x1="96"  y1="49" x2="108" y2="49" stroke="#7C7973" marker-end="url(#ar)"/>
+      <line x1="216" y1="49" x2="228" y2="49" stroke="#7C7973" marker-end="url(#ar)"/>
+      <line x1="332" y1="49" x2="344" y2="49" stroke="#7C7973" marker-end="url(#ar)"/>
+      <line x1="462" y1="49" x2="474" y2="49" stroke="#7C7973" marker-end="url(#ar)"/>
+      <line x1="578" y1="49" x2="590" y2="49" stroke="#7C7973" marker-end="url(#ar)"/>
+
+      <path d="M646,72 L646,104 L404,104 L404,72" fill="none" stroke="#3F6C9E"
+            stroke-dasharray="4 3" marker-end="url(#ar)"/>
+      <text x="525" y="118" fill="#3F6C9E" font-size="9.5">recovery re-enters the loop at a later time</text>
+    </g>
+  </svg>
+
+  <h3>The vocabulary</h3>
+  <table>
+    <tr><th style="width:110px;">Term</th><th>What it means</th></tr>
+    <tr><td><strong>Goal</strong></td>
+        <td>The reason. <em>"Improve my physical fitness."</em> A goal never has a time; it is the why.</td></tr>
+    <tr><td><strong>Behavior</strong></td>
+        <td>The thing that actually moves the goal. <em>"Exercise."</em> One goal can have many.</td></tr>
+    <tr><td><strong>Schedule</strong></td>
+        <td>When the behavior happens. <em>"06:30 and 18:00, every day."</em></td></tr>
+    <tr><td><strong>Occurrence</strong></td>
+        <td>One specific slot. <em>"Exercise, Monday, 06:30."</em> Each is tracked separately, so
+            your morning session and your evening session have their own histories.</td></tr>
+    <tr><td><strong>Intervention</strong></td>
+        <td>The alarm and the screen that asks you to decide.</td></tr>
+    <tr><td><strong>Decision</strong></td>
+        <td>Commit, recover, or pass. Always yours.</td></tr>
+  </table>
+
+  <h3>What PACT deliberately does not do</h3>
+  <ul>
+    <li>No random rewards, points, gems, or variable-ratio mechanics.</li>
+    <li>No shaming language, guilt-trips, or "you broke your streak!" notifications.</li>
+    <li>No leaderboards, sharing, or social pressure.</li>
+    <li>No account, no cloud sync, and no internet permission at all.</li>
+    <li>No cloud AI. The coaching is local rules over your own numbers, and it never claims
+        insight the data does not support.</li>
+  </ul>
+
+  <div class="note">
+    <span class="t">Autonomy is the rule</span>
+    Even the most insistent reminder setting always offers a visible way out. PACT will never lock
+    you into a screen, and it never changes your schedule without you tapping to approve it.
+  </div>
+</section>
+
+<!-- ============================ 2. INSTALL ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 2</div>
+  <h2>Installing the app</h2>
+
+  <p class="lead">
+    PACT is distributed as a single APK file. There is no Play Store listing, so you install it
+    yourself — a process Android calls "sideloading".
+  </p>
+
+  <h3>What you need</h3>
+  <ul>
+    <li>An Android phone running <strong>8.0 (Oreo) or newer</strong>.</li>
+    <li>The file <span class="mono">PACT-1.0.0.apk</span> (about 1.9&nbsp;MB).</li>
+  </ul>
+  <p>
+    The APK is <em>universal</em>: it contains code for all four common processor types
+    (arm64-v8a, armeabi-v7a, x86, x86_64), so the same file works on essentially any phone.
+  </p>
+
+  <h3>Method A &mdash; without a cable (easiest)</h3>
+  <p><span class="step-num">1</span> Get the APK onto the phone: email it to yourself, put it in
+     Google Drive or OneDrive, or copy it over USB.</p>
+  <p><span class="step-num">2</span> Open your phone's <strong>Files</strong> app and tap the APK.</p>
+  <p><span class="step-num">3</span> Android will say the app is from an <strong>unknown
+     source</strong> and offer a settings toggle. Allow your file manager (or browser) to install
+     unknown apps, then go back and confirm.</p>
+  <p><span class="step-num">4</span> Tap <strong>Install</strong>, then <strong>Open</strong>.</p>
+
+  <div class="note">
+    <span class="t">That warning is normal</span>
+    Android shows the unknown-source warning for <em>any</em> app not delivered by a store. It is
+    not a sign that something is wrong with PACT. It is Android telling you, correctly, that
+    nobody has vetted this file except you.
+  </div>
+
+  <h3>Method B &mdash; over USB with adb</h3>
+  <p>On the phone, unlock Developer options: <strong>Settings &rarr; About phone</strong>, then tap
+     <strong>Build number</strong> seven times. Go to <strong>Developer options</strong> and turn on
+     <strong>USB debugging</strong>. Plug the phone in and accept the "Allow USB debugging?" prompt.</p>
+  <p>Then, on the computer:</p>
+  <p><code>adb devices</code> &nbsp;&mdash; your phone should be listed as <span class="mono">device</span></p>
+  <p><code>adb install -r PACT-1.0.0.apk</code></p>
+  <p>The <span class="mono">-r</span> flag reinstalls over an existing copy while keeping its data.</p>
+
+  <div class="warn">
+    <span class="t">Before you rely on it</span>
+    Your history lives only on the phone. PACT switches off Android's automatic cloud backup on
+    purpose, so nothing is copied to your Google account. Use
+    <strong>Settings &rarr; Export data</strong> from time to time, and keep the file somewhere safe.
+    See chapter 25.
+  </div>
+
+  <h3>Updating later</h3>
+  <p>
+    Install the newer APK the same way. Android keeps your data as long as the new file is signed
+    with the same key as the one already installed. If you ever see
+    <em>"App not installed"</em> on an update, that is a signature mismatch — export your data
+    first, uninstall, then install the new version.
+  </p>
+</section>
+
+<!-- ============================ 3. PERMISSIONS ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 3</div>
+  <h2>First run: the two permissions that matter</h2>
+
+  <p class="lead">
+    This is the most important page in the guide. Android grants neither of these automatically,
+    and without them your reminders will be late or will not arrive at all.
+  </p>
+
+  <div class="cols">
+    <div class="text">
+      <h3>1. Notifications</h3>
+      <p>
+        PACT asks for this once, on first launch. Tap <strong>Allow</strong>. Without it the app
+        cannot show you anything when a behavior comes due — the alarm still fires, but silently
+        and invisibly.
+      </p>
+      <p>If you dismissed the prompt by accident, you can re-enable it in Android's own settings:
+         <strong>Settings &rarr; Apps &rarr; PACT &rarr; Notifications</strong>.</p>
+
+      <h3>2. Alarms &amp; reminders</h3>
+      <p>
+        This is the one people miss. Since Android 12, apps must ask separately for permission to
+        fire an alarm at an <em>exact</em> minute. PACT does not ask for it automatically, because
+        that would be a pushy first-run experience — you grant it from inside the app.
+      </p>
+      <p>
+        Go to <strong>Settings</strong> in PACT, find
+        <strong>"Will my reminders actually arrive?"</strong>, and tap
+        <strong>Alarm permission</strong>. Android opens its own screen; turn on
+        <em>Allow setting alarms and reminders</em>.
+      </p>
+      <p>
+        Without it PACT still works, but it falls back to a ten-minute window: a 06:30 reminder may
+        arrive any time between 06:30 and 06:40. The Settings screen tells you which mode you are
+        currently in.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9679;&#9679;&#9679;&nbsp; &#9723;</span></div>
+        <div class="screen">
+          <div class="sh2">Settings</div>
+          <div class="sec">Will my reminders actually arrive?</div>
+          <div class="card plain">
+            <div style="display:flex;gap:6px;">
+              <span style="color:var(--sage);font-weight:700;">&#10003;</span>
+              <div>
+                <div style="font-weight:600;">Notifications</div>
+                <div class="sub">Allowed</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:6px;margin-top:7px;">
+              <span style="color:#A33A2C;font-weight:700;">!</span>
+              <div>
+                <div style="font-weight:600;">Exact alarms</div>
+                <div class="sub">Not allowed, reminders may be<br>several minutes late</div>
+              </div>
+            </div>
+            <div class="sub" style="margin-top:8px;line-height:1.35;">
+              Android limits when apps can wake the device. PACT never tries to work around these
+              restrictions; it degrades gracefully and tells you when precision is lost.
+            </div>
+            <div style="display:flex;gap:5px;margin-top:8px;">
+              <span class="btn" style="flex:1;margin:0;">Test my reminder</span>
+              <span class="btn out" style="flex:1;margin:0;">Alarm permission</span>
+            </div>
+            <span class="btn out" style="margin-top:5px;">Battery settings</span>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Settings shows exactly which mode you are in. A red <strong>!</strong>
+        means precision has been lost.</div>
+    </div>
+  </div>
+
+  <h3>3. Battery optimisation (phone-dependent)</h3>
+  <p>
+    Some manufacturers aggressively kill background apps to save battery. If your phone is a
+    <strong>Xiaomi, Samsung, Huawei, OnePlus, Oppo, Vivo</strong> or similar, also allow PACT to
+    run unrestricted: tap <strong>Battery settings</strong> on the same screen, find PACT, and
+    choose <em>Unrestricted</em> (the wording varies by brand).
+  </p>
+
+  <div class="warn">
+    <span class="t">This is the single most common cause of missed reminders</span>
+    It is not a bug in PACT and no app can reliably work around it. If reminders stop arriving
+    after a day or two of not opening the app, aggressive battery management is almost always why.
+  </div>
+</section>
+
+<!-- ============================ 4. ALARM TEST ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 4</div>
+  <h2>Testing your reminders</h2>
+
+  <p class="lead">
+    Do this before you trust the app with anything that matters. It takes fifteen seconds and it
+    is the only honest way to know reminders work on <em>your</em> phone.
+  </p>
+
+  <div class="cols">
+    <div class="text">
+      <p>
+        Go to <strong>Settings</strong> and tap <strong>Test my reminder</strong>. PACT schedules a
+        genuine alarm about fifteen seconds into the future, through exactly the same machinery a
+        real reminder uses — same alarm, same notification channel, same intervention screen.
+      </p>
+
+      <h3>What you should see</h3>
+      <ol>
+        <li>A confirmation: <em>"A test reminder will arrive in about 15 seconds."</em></li>
+        <li>About fifteen seconds later, a notification appears with
+            <strong>Commit</strong>, <strong>Later</strong> and <strong>Pass</strong> actions.</li>
+        <li>Your chosen sound plays and the phone vibrates, if you have those enabled.</li>
+        <li>Tapping the notification opens the full intervention screen.</li>
+      </ol>
+
+      <h3>If the message says "may be several minutes late"</h3>
+      <p>
+        The exact-alarm permission is not granted. Go back to chapter 3 and turn it on. The test
+        will still fire, just imprecisely.
+      </p>
+
+      <h3>If nothing arrives at all</h3>
+      <ul>
+        <li>Check notifications are allowed for PACT in Android's settings.</li>
+        <li>Check the phone is not in Do Not Disturb or a focus mode.</li>
+        <li>Check battery optimisation, as described in chapter 3.</li>
+      </ul>
+
+      <p>
+        Afterwards, tap <strong>Remove test reminders</strong>. This deletes the temporary test
+        behavior so it never appears in your statistics.
+      </p>
+    </div>
+
+    <div class="shot">
+      <div class="phone">
+        <div class="status"><span>09:41</span><span>&#9679;&#9679;&#9679;&nbsp; &#9723;</span></div>
+        <div class="screen" style="background:#3a3733;padding:26px 11px;">
+          <div style="background:#fff;border-radius:9px;padding:9px;">
+            <div style="font-size:6.6pt;color:var(--on-surface-variant);">PACT &middot; now</div>
+            <div style="font-weight:700;margin-top:2px;">Test reminder</div>
+            <div class="sub" style="line-height:1.35;">
+              It is time for Test reminder. Whatever you can manage counts.<br>
+              If you can see this, reminders are working.
+            </div>
+            <div style="display:flex;gap:4px;margin-top:8px;border-top:1px solid #eee;padding-top:6px;">
+              <span style="flex:1;text-align:center;color:var(--commit);font-weight:700;font-size:7.4pt;">COMMIT</span>
+              <span style="flex:1;text-align:center;color:var(--recover);font-weight:700;font-size:7.4pt;">LATER</span>
+              <span style="flex:1;text-align:center;color:var(--pass);font-weight:700;font-size:7.4pt;">PASS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">The test notification. The three actions are the same ones every real
+        reminder carries.</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <span class="t">Re-test after a phone update</span>
+    Android updates and manufacturer software updates sometimes reset battery and alarm
+    permissions. If reminders quietly stop, run the test again first — it will usually tell you
+    what changed.
+  </div>
+</section>
+
+<!-- ============================ 5. ONBOARDING ============================ -->
+<section class="page">
+  <div class="kicker">Chapter 5</div>
+  <h2>Onboarding</h2>
+
+  <p class="lead">
+    The first time you open PACT it walks you through four short screens. You can skip it and set
+    things up yourself, but the third and fourth screens contain the one piece of advice most worth
+    taking.
+  </p>
+
+  <div class="gallery">
+    <div>
+      <div class="phone" style="width:200px;">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen" style="min-height:250px;">
+          <div class="sh1" style="font-size:20pt;">PACT</div>
+          <div style="font-weight:600;margin-bottom:6px;">A personal coach for the things you have decided to do.</div>
+          <div class="sub" style="line-height:1.45;">
+            PACT reminds you at the moment you planned, then asks one question: are you doing this
+            now, coming back to it later, or letting it go today?
+          </div>
+          <div class="sub" style="margin-top:8px;">
+            Everything stays on this phone. There is no account and no internet connection.
+          </div>
+          <span class="btn">Get started</span>
+          <div style="text-align:center;color:var(--sage);font-size:7.4pt;margin-top:5px;">Skip setup</div>
+        </div>
+      </div>
+      <div class="caption" style="max-width:200px;">Step 1 &mdash; Welcome</div>
+    </div>
+
+    <div>
+      <div class="phone" style="width:200px;">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen" style="min-height:250px;">
+          <div class="sh2">How it works</div>
+          <div style="margin-top:7px;">
+            <div style="color:var(--sage);font-size:6.6pt;font-weight:700;letter-spacing:.8pt;">GOAL</div>
+            <div class="sub">The reason. "Improve my fitness."</div>
+          </div>
+          <div style="margin-top:6px;">
+            <div style="color:var(--sage);font-size:6.6pt;font-weight:700;letter-spacing:.8pt;">BEHAVIOR</div>
+            <div class="sub">What actually moves it. "Exercise."</div>
+          </div>
+          <div style="margin-top:6px;">
+            <div style="color:var(--sage);font-size:6.6pt;font-weight:700;letter-spacing:.8pt;">SCHEDULE</div>
+            <div class="sub">When. "06:30 and 18:00, every day."</div>
+          </div>
+          <div style="margin-top:6px;">
+            <div style="color:var(--sage);font-size:6.6pt;font-weight:700;letter-spacing:.8pt;">DECISION</div>
+            <div class="sub">Commit, recover, or pass.</div>
+          </div>
+          <div class="card plain" style="margin-top:8px;">
+            <div style="font-weight:600;">The important part</div>
+            <div class="sub" style="line-height:1.35;">Missing something is not failure. Recovering
+              is a real choice, tracked as its own outcome.</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption" style="max-width:200px;">Step 2 &mdash; The concept</div>
+    </div>
+
+    <div>
+      <div class="phone" style="width:200px;">
+        <div class="status"><span>09:41</span><span>&#9723;</span></div>
+        <div class="screen" style="min-height:250px;">
+          <div class="sh2">One behavior</div>
+          <div class="sub">For: Improve my fitness</div>
+          <div class="sub" style="margin-top:7px;line-height:1.45;">
+            What is the one thing that would actually move this forward? Pick something small
+            enough that a bad day cannot stop it.
+          </div>
+          <div class="card plain" style="margin-top:8px;">
+            <div style="font-weight:600;">Do not try to change everything at once.</div>
+            <div class="sub" style="line-height:1.35;">One or two behaviors that survive a month
+              beat ten that last a week.</div>
+          </div>
+          <span class="btn">Create my first behavior</span>
+          <span class="btn out">I will do this later</span>
+        </div>
+      </div>
+      <div class="caption" style="max-width:200px;">Step 4 &mdash; The advice worth taking</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <span class="t">Start with one or two behaviors</span>
+    This is not modesty, it is arithmetic. Ten new behaviours means ten chances a day to feel like
+    you are failing, and people abandon the whole system rather than one item. One behaviour that
+    survives a month is worth more than ten that last a week — and you can always add more once the
+    first is genuinely automatic.
+  </div>
+</section>
+
+</body>
+</html>
